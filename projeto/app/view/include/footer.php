@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted" style="position:fixed; buttom:0; left:0; right:0;">
+<footer class="text-center text-lg-start  text-muted" style="position:fixed; bottom:0; left:0; right:0;">
     <!-- Copyright -->
     <div class="text-center p-4">
         © 2023 Copyright:

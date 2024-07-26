@@ -2,7 +2,7 @@
 #Nome do arquivo: Connection.php
 #Objetivo: classe para conectar ao banco de dados
 
-//require_once(__DIR__ . "/../util/config.php");
+require_once(__DIR__ . "/../util/config.php");
 
 class Connection {
 
@@ -25,6 +25,8 @@ class Connection {
             #$conn = new PDO("mysql:host=XXXX;dbname=XXX", "root", "root", array());
             $conn = new PDO($str_conn, DB_USER, DB_PASSWORD, $options);
             return $conn;
+
+
         } catch (PDOException $e) {
             echo "Falha ao conectar na base de dados: " . $e->getMessage();
         }

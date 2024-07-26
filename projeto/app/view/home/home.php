@@ -1,28 +1,35 @@
 <?php
+#View para a home do sistema
+
 require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
-
-<link rel="stylesheet" href="<?=BASEURL?>/view/home/home.css">
+<link rel="stylesheet" href="<?= BASEURL ?>/view/home/home.css">
 
 <div class="row mt-3 justify-content-center">
     <div class="col-3 text-center">
-        <span class="fonte-grande">Usuários ativos:</span>
-        <span class="badge badge-info  fonte-grande"><?= $dados["totalUsuarios"]?></span>
-        
+        <span class="fonte-grande">Usuários ativos: </span>
+
+        <span class="badge badge-info fonte-grande">
+            <?= $dados["totalUsuarios"] ?>
+        </span>
+
         <ul>
-    <?php 
-    foreach ($dados["listaUsuarios"] as $u) {
-        echo "<li>". $u->getNome(). "</li>";
-    }
-    ?>
+            <?php 
+                foreach($dados["listaUsuarios"] as $u) {
+                    echo "<li>". $u->getNome() . "</li>";
+                }
+            ?>
         </ul>
-    <a href="#" onclick = "usuarios()" class="btn btn-info"> Chamada AJAX</a>
+
+        <a href="#" class="btn" 
+            onclick="usuarios();">Chamada AJAX</a>
     </div>
+
 </div>
 
+<script src="<?= BASEURL ?>/view/home/home.js"></script>
 
-<script src="<?=BASEURL?>/view/home/home.js"></script>
-<?php  
+<?php
 require_once(__DIR__ . "/../include/footer.php");
 ?>

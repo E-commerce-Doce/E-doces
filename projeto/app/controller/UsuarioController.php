@@ -32,18 +32,24 @@ class UsuarioController extends Controller {
 
     protected function save() {
         //Captura os dados do formulário
-        $dados["id"] = isset($_POST['id']) ? $_POST['id'] : 0;
-        $nome = trim($_POST['nome']) ? trim($_POST['nome']) : NULL;
-        $login = trim($_POST['login']) ? trim($_POST['login']) : NULL;
-        $senha = trim($_POST['senha']) ? trim($_POST['senha']) : NULL;
-        $confSenha = trim($_POST['conf_senha']) ? trim($_POST['conf_senha']) : NULL;
-        $papel = trim($_POST['papel']) ? trim($_POST['papel']) : NULL;
+        $dados["id"] = isset($_POST['id']) ? (int)$_POST['id'] : 0;
+        $cpf = isset($_POST['cpf']) ? trim($_POST['cpf']) : NULL;
+        $nome = isset($_POST['nome']) ? trim($_POST['nome']) : NULL;
+        $telefone = isset($_POST['telefone']) ? trim($_POST['telefone']) : NULL;
+        $login = isset($_POST['login']) ? trim($_POST['login']) : NULL;
+        $senha = isset($_POST['senha']) ? trim($_POST['senha']) : NULL;
+        $confSenha = isset($_POST['conf_senha']) ? trim($_POST['conf_senha']) : NULL;
+        $dataNascimento = isset($_POST['dataNascimento']) ? trim($_POST['dataNascimento']) : NULL;
+        $papel = isset($_POST['papel']) ? trim($_POST['papel']) : NULL;
 
         //Cria objeto Usuario
         $usuario = new Usuario();
         $usuario->setNome($nome);
+        $usuario->setCpf($cpf);
+        $usuario->setTelefone($telefone);
         $usuario->setLogin($login);
         $usuario->setSenha($senha);
+        $usuario->setDataNascimento($dataNascimento);
         $usuario->setPapel($papel);
 
         //Validar os dados
@@ -53,7 +59,7 @@ class UsuarioController extends Controller {
             try {
                 
                 if($dados["id"] == 0)  //Inserindo
-                    $this->usuarioDao->insert($usuario);
+                    $this->usuarioDao->insert($usuario);                    
                 else { //Alterando
                     $usuario->setId($dados["id"]);
                     $this->usuarioDao->update($usuario);
@@ -64,7 +70,7 @@ class UsuarioController extends Controller {
                 $this->list("", $msg);
                 exit;
             } catch (PDOException $e) {
-                $erros = "[Erro ao salvar o usuário na base de dados.]";                
+                $erros = array("Erro ao salvar o usuário na base de dados." . $e->getMessage());                
             }
         }
 

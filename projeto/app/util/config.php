@@ -6,13 +6,13 @@ ini_set("display_errors", 1);
 
 //Banco de dados: conexão MySQL
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'proj_integrador');
+define('DB_NAME', 'db_ecommerce');
 define('DB_USER', 'root');
-define('DB_PASSWORD', 'bancodedados');
+define('DB_PASSWORD', 'root');
 
 //Caminho para adionar imagens, scripts e chamar páginas no sistema
 //Deve ter o nome da pasta do projeto no servidor APACHE
-define('BASEURL', '/crud_pi_template/app');
+define('BASEURL', 'ProjetoIntegrador/E-doces/projeto/app');
 
 //Nome do sistema
 define('APP_NAME', 'Template do Projeto Integrador');

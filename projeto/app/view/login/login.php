@@ -1,6 +1,8 @@
 <?php
 #Nome do arquivo: login/login.php
 #Objetivo: interface para logar no sistema
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 require_once(__DIR__ . "/../include/header.php");
 ?>
@@ -8,7 +10,7 @@ require_once(__DIR__ . "/../include/header.php");
 <div class="container">
     <div class="row" style="margin-top: 20px;">
         <div class="col-6">
-            <div class="alert alert-info">
+            <div class="alert " style="background-color: #9BB899;">
                 <h4>Informe os dados para logar:</h4>
                 <br>
 
@@ -28,7 +30,7 @@ require_once(__DIR__ . "/../include/header.php");
                             value="<?php echo isset($dados['senha']) ? $dados['senha'] : '' ?>" />        
                     </div>
 
-                    <button type="submit" class="btn btn-success">Logar</button>
+                    <button type="submit" class="btn">Logar</button>
                 </form>
             </div>
         </div>

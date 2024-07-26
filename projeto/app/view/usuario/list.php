@@ -11,7 +11,7 @@ require_once(__DIR__ . "/../include/menu.php");
 <div class="container">
     <div class="row">
         <div class="col-3">
-            <a class="btn btn-success" 
+            <a class="btn " 
                 href="<?= BASEURL ?>/controller/UsuarioController.php?action=create">
                 Inserir</a>
         </div>
@@ -27,8 +27,11 @@ require_once(__DIR__ . "/../include/menu.php");
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Cpf</th>
                         <th>Nome</th>
+                        <th>Telefone</th>
                         <th>Login</th>
+                        <th>Data de Nascimento</th>
                         <th>Papel</th>
                         <th>Alterar</th>
                         <th>Excluir</th>
@@ -38,14 +41,17 @@ require_once(__DIR__ . "/../include/menu.php");
                     <?php foreach($dados['lista'] as $usu): ?>
                         <tr>
                             <td><?php echo $usu->getId(); ?></td>
+                            <td><?php echo $usu->getCpf(); ?></td>
                             <td><?= $usu->getNome(); ?></td>
+                            <td><?= $usu->getTelefone(); ?></td>
                             <td><?= $usu->getLogin(); ?></td>
+                            <td><?= $usu->getDataNascimento(); ?></td>
                             <td><?= $usu->getPapel(); ?></td>
-                            <td><a class="btn btn-primary" 
+                            <td><a class="btn" 
                                 href="<?= BASEURL ?>/controller/UsuarioController.php?action=edit&id=<?= $usu->getId() ?>">
                                 Alterar</a> 
                             </td>
-                            <td><a class="btn btn-danger" 
+                            <td><a class="btn" 
                                 onclick="return confirm('Confirma a exclusão do usuário?');"
                                 href="<?= BASEURL ?>/controller/UsuarioController.php?action=delete&id=<?= $usu->getId() ?>">
                                 Excluir</a> 

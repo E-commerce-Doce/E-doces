@@ -18,17 +18,39 @@ require_once(__DIR__ . "/../include/menu.php");
         <div class="col-6">
             <form id="frmUsuario" method="POST" 
                 action="<?= BASEURL ?>/controller/UsuarioController.php?action=save" >
+
+                <div class="form-group">
+                    <label for="txtCpf">CPF:</label>
+                    <input class="form-control" type="text" id="txtCpf" name="cpf" 
+                        maxlength="70" placeholder="CPF na Nota?"
+                        value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getCpf() : ''); ?>" />
+                </div>
+
                 <div class="form-group">
                     <label for="txtNome">Nome:</label>
                     <input class="form-control" type="text" id="txtNome" name="nome" 
-                        maxlength="70" placeholder="Informe o nome"
+                        maxlength="70" placeholder="Informe seu nome:"
                         value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getNome() : ''); ?>" />
                 </div>
+
+                <div class="form-group">
+                    <label for="txtTelefone">Telefone:</label>
+                    <input class="form-control" type="text" id="txtTelefone" name="telefone" 
+                        maxlength="70" placeholder="Qual o seu telefone?"
+                        value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getTelefone() : ''); ?>" />
+                </div>
+
+                <div class="form-group">
+                    <label for="txtDataNascimento">Data de Nascimento:</label>
+                    <input class="form-control" type="date" id="txtDataNascimento" name="dataNascimento" 
+                        value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getDataNascimento() : ''); ?>" />
+                </div>
+                
                 
                 <div class="form-group">
                     <label for="txtLogin">Login:</label>
                     <input class="form-control" type="text" id="txtLogin" name="login" 
-                        maxlength="15" placeholder="Informe o login"
+                        maxlength="15" placeholder="Informe seu e-mal:"
                         value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getLogin() : ''); ?>"/>
                 </div>
 
@@ -67,8 +89,8 @@ require_once(__DIR__ . "/../include/menu.php");
                 <input type="hidden" id="hddId" name="id" 
                     value="<?= $dados['id']; ?>" />
 
-                <button type="submit" class="btn btn-success">Gravar</button>
-                <button type="reset" class="btn btn-danger">Limpar</button>
+                <button type="submit" class="btn">Gravar</button>
+                <button type="reset" class="btn">Limpar</button>
             </form>            
         </div>
 
@@ -79,7 +101,7 @@ require_once(__DIR__ . "/../include/menu.php");
 
     <div class="row" style="margin-top: 30px;">
         <div class="col-12">
-        <a class="btn btn-secondary" 
+        <a class="btn" 
                 href="<?= BASEURL ?>/controller/UsuarioController.php?action=list">Voltar</a>
         </div>
     </div>
