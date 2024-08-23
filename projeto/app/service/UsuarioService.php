@@ -32,9 +32,6 @@ class UsuarioService
         if (!$usuario->getDataNascimento())
             array_push($erros, "O campo [Data de Nascimento] é obrigatório.");
 
-        if (!$usuario->getPapel())
-            array_push($erros, "O campo [Papel] é obrigatório");
-
 
         //Validar se a senha é igual a contra senha
         if ($usuario->getSenha() && $confSenha && $usuario->getSenha() != $confSenha)

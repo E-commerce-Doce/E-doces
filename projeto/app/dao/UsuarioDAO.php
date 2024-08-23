@@ -75,6 +75,8 @@ class UsuarioDAO
     {
         $conn = Connection::getConn();
 
+        $papel = "CLIENTE";
+
         $sql = "INSERT INTO Usuario (cpf, nomeCompleto, telefone, login, senha, dataNascimento, papel)" .
             " VALUES (:cpf, :nome, :telefone, :login, :senha, :dataNascimento, :papel)";
 
@@ -87,7 +89,7 @@ class UsuarioDAO
         $senhaCript = password_hash($usuario->getSenha(), PASSWORD_DEFAULT);
         $stm->bindValue("senha", $senhaCript);
         $stm->bindValue("dataNascimento", $usuario->getDataNascimento());
-        $stm->bindValue("papel", $usuario->getPapel());
+        $stm->bindValue("papel", $papel);
         $stm->execute();
     }
 
@@ -95,6 +97,8 @@ class UsuarioDAO
     public function update(Usuario $usuario)
     {
         $conn = Connection::getConn();
+
+        $papel = "CLIENTE";
 
         $sql = "UPDATE Usuario SET cpf = :cpf, nomeCompleto = :nome, login = :login, " .
             " telefone = :telefone, dataNascimento = :dataNascimento, " .
@@ -109,7 +113,7 @@ class UsuarioDAO
         $senhaCript = password_hash($usuario->getSenha(), PASSWORD_DEFAULT);
         $stm->bindValue("senha", $senhaCript);
         $stm->bindValue("dataNascimento", $usuario->getDataNascimento());
-        $stm->bindValue("papel", $usuario->getPapel());
+        $stm->bindValue("papel", $papel);
         $stm->bindValue("id", $usuario->getId());
         $stm->execute();
     }

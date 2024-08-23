@@ -20,7 +20,7 @@ USE `db_ecommerce` ;
 CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `cpf` VARCHAR(15) NULL,
-  `papel` ENUM('CLIENTE', 'CONFEITEIRO', 'ADMINISTRADOR') NOT NULL,
+  `papel` ENUM('CLIENTE', 'CONFEITEIRO', 'ADMINISTRADOR') NOT NULL DEFAULT 'CLIENTE',
   `nomeCompleto` VARCHAR(70) NOT NULL,
   `telefone` VARCHAR(15) NOT NULL,
   `login` VARCHAR(200) NOT NULL,
@@ -36,9 +36,9 @@ ENGINE = InnoDB;
 -- Table `db_ecommerce`.`Confeiteiro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Confeiteiro` (
-  `idConfeiteiro` INT NOT NULL,
+  `idConfeiteiro` INT NOT NULL AUTO_INCREMENT,
   `nomeLoja` VARCHAR(70) NOT NULL,
-  `cnpjLoja` VARCHAR(14) NOT NULL,
+  `mei` VARCHAR(15) NOT NULL,
   `idUsuario` INT NOT NULL,
   PRIMARY KEY (`idConfeiteiro`),
   INDEX `fk_Confeiteiro_Usuario1_idx` (`idUsuario` ASC) VISIBLE,
@@ -54,7 +54,7 @@ ENGINE = InnoDB;
 -- Table `db_ecommerce`.`Endereco`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Endereco` (
-  `idEndereco` INT NOT NULL,
+  `idEndereco` INT NOT NULL AUTO_INCREMENT,
   `cep` VARCHAR(8) NOT NULL,
   `nomeLogradouro` VARCHAR(45) NOT NULL,
   `numero` INT NOT NULL,
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 -- Table `db_ecommerce`.`TipoDoce`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ecommerce`.`TipoDoce` (
-  `idTipoDoce` INT NOT NULL,
+  `idTipoDoce` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTipoDoce`))
 ENGINE = InnoDB;
@@ -88,7 +88,7 @@ ENGINE = InnoDB;
 -- Table `db_ecommerce`.`Doce`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Doce` (
-  `idDoces` INT NOT NULL,
+  `idDoces` INT NOT NULL AUTO_INCREMENT,
   `nomeDoce` VARCHAR(200) NOT NULL,
   `descricao` VARCHAR(200) NOT NULL,
   `disponibilidade` VARCHAR(45) NOT NULL,
@@ -117,11 +117,10 @@ ENGINE = InnoDB;
 -- Table `db_ecommerce`.`Pedido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Pedido` (
-  `idPedidos` INT NOT NULL,
+  `idPedidos` INT NOT NULL AUTO_INCREMENT,
   `idConfeiteiro` INT NOT NULL,
   `idUsuario` INT NOT NULL,
   `formaPagamento` ENUM('PIX', 'DINHEIRO') NOT NULL,
-  `agendamento` DATETIME NULL,
   `avaliacao` VARCHAR(200) NULL,
   `status` ENUM('RECEBIDO', 'PREPARANDO', 'ENVIADO', 'ENTREGUE', 'CANCELADO') NOT NULL,
   `data` DATETIME NOT NULL,

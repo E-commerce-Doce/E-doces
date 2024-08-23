@@ -8,7 +8,7 @@ if (isset($_SESSION[SESSAO_USUARIO_NOME]))
 ?>
 <nav class="navbar navbar-expand-lg  ">
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <a class="navbar-brand" href="#">&nbsp Sweet Dreams &nbsp</a>
+        <a class="navbar-brand" href="#">&nbsp A'MEIs &nbsp</a>
 
         <ul class="navbar-nav  mr-auto">
             <li class="nav-item active">

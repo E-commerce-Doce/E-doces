@@ -68,23 +68,6 @@ require_once(__DIR__ . "/../include/menu.php");
                         value="<?php echo isset($dados['confSenha']) ? $dados['confSenha'] : '';?>"/>
                 </div>
 
-                <div class="form-group">
-                    <label>Papel</label>
-                    <select class="form-control" name="papel" id="selPapel">
-                        <option value="">Selecione o papel</option>
-                        <?php foreach($dados["papeis"] as $papel): ?>
-                            <option value="<?= $papel ?>" 
-                                <?php 
-                                    if(isset($dados["usuario"]) && $dados["usuario"]->getPapel() == $papel) 
-                                        echo "selected";
-                                ?>    
-                            >
-                                <?= $papel ?>
-                            </option>
-                        <?php endforeach; ?>
-
-                    </select>
-                </div>
 
                 <input type="hidden" id="hddId" name="id" 
                     value="<?= $dados['id']; ?>" />

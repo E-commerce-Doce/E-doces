@@ -12,10 +12,10 @@ define('DB_PASSWORD', 'root');
 
 //Caminho para adionar imagens, scripts e chamar páginas no sistema
 //Deve ter o nome da pasta do projeto no servidor APACHE
-define('BASEURL', 'ProjetoIntegrador/E-doces/projeto/app');
+define('BASEURL', '/ProjetoIntegrador/E-doces/projeto/app');
 
 //Nome do sistema
-define('APP_NAME', 'Template do Projeto Integrador');
+define('APP_NAME', 'AMEIs');
 
 //Página de logout do sistema
 define('LOGIN_PAGE', BASEURL . '/controller/LoginController.php?action=login');
