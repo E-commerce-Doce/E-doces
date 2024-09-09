@@ -12,8 +12,8 @@ class UsuarioController extends Controller {
 
     //Método construtor do controller - será executado a cada requisição a está classe
     public function __construct() {
-        //if(! $this->usuarioLogado())
-        //    exit;
+        if(! $this->usuarioLogado())
+            exit;
 
         $this->usuarioDao = new UsuarioDAO();
         $this->usuarioService = new UsuarioService();

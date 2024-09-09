@@ -31,17 +31,13 @@
             background-color: #FCCEAA;
             font-family: Montserrant;
         }
-        .card{
-            background-color: var(--cor-verde);
-            
-        }
 
         .navbar {
             background-color: #9BB899;
             color:#9BB899;
             font-weight: bolder;
-        }
 
+        }
         .estilo{
             font-family:(var(--font-principal));
         }

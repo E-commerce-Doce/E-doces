@@ -50,7 +50,7 @@ require_once(__DIR__ . "/../include/menu.php");
                 <div class="form-group">
                     <label for="txtLogin">Login:</label>
                     <input class="form-control" type="text" id="txtLogin" name="login" 
-                        maxlength="200" placeholder="Informe seu e-mal:"
+                        maxlength="15" placeholder="Informe seu e-mal:"
                         value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getLogin() : ''); ?>"/>
                 </div>
 
