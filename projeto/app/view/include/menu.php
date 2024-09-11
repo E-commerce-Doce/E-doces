@@ -18,9 +18,7 @@ if (isset($_SESSION[SESSAO_USUARIO_NOME]))
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Produtos </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Sorvetes</a>
-                    <a class="dropdown-item" href="#">Doces</a>
-                    <a class="dropdown-item" href="#">Bolos</a>
+                    <a class="dropdown-item" href="<?= BASEURL . '/controller/DoceController.php?action=list'?>">Doces</a>
                 </div>
             </li>
 
@@ -28,7 +26,7 @@ if (isset($_SESSION[SESSAO_USUARIO_NOME]))
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cadastros </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="<?= BASEURL . '/controller/UsuarioController.php?action=list' ?>">Usuários</a>
-                    <a class="dropdown-item" href="#">Outro cadastro</a>
+                    <a class="dropdown-item" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=create' ?>">Confeiteiro</a>
                 </div>
             </li>
 

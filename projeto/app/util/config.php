@@ -12,7 +12,7 @@ define('DB_PASSWORD', 'root');
 
 //Caminho para adionar imagens, scripts e chamar páginas no sistema
 //Deve ter o nome da pasta do projeto no servidor APACHE
-define('BASEURL', '/E-doces/projeto/app');
+define('BASEURL', '/ProjetoIntegrador/E-doces/projeto/app');
 
 //Nome do sistema
 define('APP_NAME', 'AMEIs');
@@ -26,7 +26,15 @@ define('LOGOUT_PAGE', BASEURL . '/controller/LoginController.php?action=logout')
 //Página home do sistema
 define('HOME_PAGE', BASEURL . '/controller/HomeController.php?action=home');
 
+
+define("DIR_ARQUIVOS", __DIR__ . "/../../arquivos");
+define("URL_ARQUIVOS", BASEURL . "/../arquivos");
+
 //Sessão do usuário
 define('SESSAO_USUARIO_ID', "usuarioLogadoId");
 define('SESSAO_USUARIO_NOME', "usuarioLogadoNome");
 define('SESSAO_USUARIO_PAPEL', "usuarioLogadoPapel");
+
+
+
+
