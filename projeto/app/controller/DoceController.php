@@ -6,18 +6,23 @@ ini_set("display_errors", 1);
 require_once(__DIR__ . "/Controller.php");
 require_once(__DIR__ . "/../dao/DoceDAO.php");
 require_once(__DIR__ . "/../dao/TipoDoceDAO.php");
+require_once(__DIR__ . "/../dao/UsuarioDAO.php");
 require_once(__DIR__ . "/../dao/ConfeiteiroDAO.php");
 require_once(__DIR__ . "/../service/DoceService.php");
 require_once(__DIR__ . "/../service/ArquivoService.php");
 require_once(__DIR__ . "/../model/Doce.php");
+require_once(__DIR__ . "/../model/Usuario.php");
+
 
 class DoceController extends Controller
 {
 
     private DoceDAO $doceDao;
     private TipoDoceDAO $tipoDoceDao;
+    private UsuarioDAO $usuarioDao;
     private DoceService $doceService;
     private ArquivoService $arquivoService;
+    private Usuario $usuario;
 
 
     public function __construct()
@@ -29,15 +34,23 @@ class DoceController extends Controller
         $this->tipoDoceDao = new TipoDoceDAO();
         $this->doceService = new DoceService();
         $this->arquivoService = new ArquivoService();
+        $this->usuarioDao = new UsuarioDAO();
+
+        $usuarioId = $_SESSION[SESSAO_USUARIO_ID]; 
+        $this->usuario = $this->usuarioDao->findById($usuarioId); 
 
         $this->handleAction();
     }
 
     protected function list(string $msgErro = "", string $msgSucesso = "")
     {
+        
         $doce = $this->doceDao->list();
-        $dados["lista"] = $doce;
-       
+        $dados = [
+            "lista" => $doce,
+            "usuario" => $this->usuario // Passa o usuário para a view
+        ];
+
 
         $this->loadView("doce/listDoce.php", $dados,  $msgErro, $msgSucesso);
     }
@@ -127,6 +140,11 @@ class DoceController extends Controller
     //Método create
     protected function create()
     {
+        if ($this->usuario->getPapel() !== UsuarioPapel::CONFEITEIRO) {
+            echo 'Acesso negado!';
+            return;
+        }
+
         $dados["id"] = 0;
 
         $tiposDoces = $this->tipoDoceDao->list();
@@ -138,6 +156,11 @@ class DoceController extends Controller
     //Método edit
     protected function edit()
     {
+        if ($this->usuario->getPapel() !== UsuarioPapel::CONFEITEIRO) {
+            echo 'Acesso negado!';
+            return;
+        }
+
         $doce = $this->findDoceById();
 
         if ($doce != null) {
@@ -156,6 +179,11 @@ class DoceController extends Controller
     //Método delete 
     protected function delete()
     {
+        if ($this->usuario->getPapel() !== UsuarioPapel::CONFEITEIRO) {
+            echo 'Acesso negado!';
+            return;
+        }
+
         $doce = $this->findDoceById();
 
         if ($doce) {

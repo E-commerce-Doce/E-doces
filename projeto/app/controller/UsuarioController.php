@@ -2,31 +2,50 @@
 #Classe controller para Usuário
 require_once(__DIR__ . "/Controller.php");
 require_once(__DIR__ . "/../dao/UsuarioDAO.php");
+require_once(__DIR__ . "/../dao/ConfeiteiroDAO.php");
 require_once(__DIR__ . "/../service/UsuarioService.php");
 require_once(__DIR__ . "/../model/Usuario.php");
 
+
+// UsuarioController.php
 class UsuarioController extends Controller {
-
     private UsuarioDAO $usuarioDao;
+    private ConfeiteiroDAO $confeiteiroDao;
     private UsuarioService $usuarioService;
+    private Usuario $usuario;
 
-    //Método construtor do controller - será executado a cada requisição a está classe
     public function __construct() {
-        if(! $this->usuarioLogado())
+        if (!$this->usuarioLogado()) {
             exit;
+        }
 
         $this->usuarioDao = new UsuarioDAO();
+        $this->confeiteiroDao = new ConfeiteiroDAO();
         $this->usuarioService = new UsuarioService();
+
+      
+        $usuarioId = $_SESSION[SESSAO_USUARIO_ID]; 
+        $this->usuario = $this->usuarioDao->findById($usuarioId); 
+
+        if (!$this->usuario) {
+            echo 'Usuário não encontrado!';
+            exit;
+        }
 
         $this->handleAction();
     }
+    
 
     protected function list(string $msgErro = "", string $msgSucesso = "") {
-        $usuarios = $this->usuarioDao->list();
-        //print_r($usuarios);
-        $dados["lista"] = $usuarios;
+        if ($this->usuario->getPapel() !== UsuarioPapel::ADMINISTRADOR) {
+            echo 'Acesso negado!';
+            return;
+        }
 
-        $this->loadView("usuario/list.php", $dados,  $msgErro, $msgSucesso);
+        $usuarios = $this->usuarioDao->list();
+        
+        $dados["lista"] = $usuarios;
+        $this->loadView("usuario/list.php", $dados, $msgErro, $msgSucesso);
     }
 
     protected function save() {
@@ -66,7 +85,7 @@ class UsuarioController extends Controller {
 
                 //TODO - Enviar mensagem de sucesso
                 $msg = "Usuário salvo com sucesso.";
-                $this->list("", $msg);
+                $this->editProfile("", $msg);
                 exit;
             } catch (PDOException $e) {
                 $erros = array("Erro ao salvar o usuário na base de dados." . $e->getMessage());                
@@ -110,6 +129,22 @@ class UsuarioController extends Controller {
             $this->list("Usuario não encontrado");
      }
 
+     
+     public function editProfile(string $msgErro = "", string $msgSucesso = "") {
+        $usuarioId = $_SESSION[SESSAO_USUARIO_ID]; // ID do usuário logado
+        $usuario = $this->usuarioDao->findById($usuarioId);
+    
+        if (!$usuario) {
+            $msgErro = "Usuário não encontrado.";
+            $this->loadView("usuario/form.php", [], $msgErro);
+            return;
+        }
+    
+        $dados["usuario"] = $usuario;
+        $this->loadView("usuario/edit.php", $dados, $msgErro, $msgSucesso);
+    }
+    
+
        //Método delete 
     protected function delete() {
         $usuario = $this->findUsuarioById();
@@ -117,10 +152,10 @@ class UsuarioController extends Controller {
         if ($usuario) {
             $this->usuarioDao->deleteById($usuario->getId());
 
-            $this->list("", "Usuario excluído com sucesso!");
+            $this->create("", "Usuario excluído com sucesso!");
 
         } else 
-            $this->list("Usuario não encontrado");
+            $this->create("Usuario não encontrado");
     }
 
     protected function listJson(){

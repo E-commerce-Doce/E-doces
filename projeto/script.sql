@@ -91,7 +91,6 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Doce` (
   `idDoces` INT NOT NULL AUTO_INCREMENT,
   `nomeDoce` VARCHAR(200) NOT NULL,
   `descricao` VARCHAR(200) NOT NULL,
-  `disponibilidade` VARCHAR(45) NOT NULL,
   `caminhoImagem` VARCHAR(255) NOT NULL,
   `valor` FLOAT NOT NULL,
   `ingredientes` VARCHAR(45) NOT NULL,
@@ -124,9 +123,11 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Pedido` (
   `avaliacao` VARCHAR(200) NULL,
   `status` ENUM('RECEBIDO', 'PREPARANDO', 'ENVIADO', 'ENTREGUE', 'CANCELADO') NOT NULL,
   `data` DATETIME NOT NULL,
+  `idEndereco` INT NOT NULL,
   PRIMARY KEY (`idPedidos`),
   INDEX `fk_Pedidos_Confeiteiro1_idx` (`idConfeiteiro` ASC) VISIBLE,
   INDEX `fk_Pedidos_Usuario1_idx` (`idUsuario` ASC) VISIBLE,
+  INDEX `fk_Pedido_Endereco1_idx` (`idEndereco` ASC) VISIBLE,
   CONSTRAINT `fk_Pedidos_Confeiteiro1`
     FOREIGN KEY (`idConfeiteiro`)
     REFERENCES `db_ecommerce`.`Confeiteiro` (`idConfeiteiro`)
@@ -135,6 +136,11 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Pedido` (
   CONSTRAINT `fk_Pedidos_Usuario1`
     FOREIGN KEY (`idUsuario`)
     REFERENCES `db_ecommerce`.`Usuario` (`idUsuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Pedido_Endereco1`
+    FOREIGN KEY (`idEndereco`)
+    REFERENCES `db_ecommerce`.`Endereco` (`idEndereco`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

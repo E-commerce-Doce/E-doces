@@ -4,6 +4,8 @@
 
 include_once(__DIR__ . "/../connection/Connection.php");
 include_once(__DIR__ . "/../model/Usuario.php");
+include_once(__DIR__ . "/../model/Confeiteiro.php");
+
 
 class UsuarioDAO
 {
@@ -13,7 +15,10 @@ class UsuarioDAO
     {
         $conn = Connection::getConn();
 
-        $sql = "SELECT * FROM Usuario u ORDER BY u.nomeCompleto";
+        $sql = "SELECT u.*, c.nomeLoja, c.mei
+                 FROM Usuario u   
+                LEFT JOIN Confeiteiro c ON (u.idUsuario = c.idUsuario)
+                ORDER BY u.nomeCompleto";
         $stm = $conn->prepare($sql);
         $stm->execute();
         $result = $stm->fetchAll();
@@ -21,7 +26,7 @@ class UsuarioDAO
         return $this->mapUsuarios($result);
     }
 
-    //Método para buscar um usuário por seu ID
+
     public function findById(int $id)
     {
         $conn = Connection::getConn();
@@ -156,6 +161,15 @@ class UsuarioDAO
             $usuario->setSenha($reg['senha']);
             $usuario->setDataNascimento($reg['dataNascimento']);
             $usuario->setPapel($reg['papel']);
+
+            //Se o usuário é um confeiteiro, preenche os dados
+            if(isset($reg['nomeLoja']) && $reg['nomeLoja']) {
+                $usuario->setConfeiteiro(new Confeiteiro());
+                $usuario->getConfeiteiro()->setUsuario($usuario);
+                $usuario->getConfeiteiro()->setNomeLoja($reg['nomeLoja']);
+                $usuario->getConfeiteiro()->setMei($reg['mei']);
+            }
+
             array_push($usuarios, $usuario);
         }
 

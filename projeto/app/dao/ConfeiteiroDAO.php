@@ -13,8 +13,7 @@ class ConfeiteiroDAO
 
     public function list()
     {
-        $sql = "SELECT c.*, u.nomeCompleto AS nomeCompleto FROM Confeiteiro c
-        JOIN Usuario u on (u.idUsuario = c.idUsuario) ORDER BY c.nomeLoja";
+        $sql = "SELECT * FROM Confeiteiro c ORDER BY c.nomeLoja";
         $conn = Connection::getConn();
         $stm = $conn->prepare($sql);
         $stm->execute();
@@ -27,7 +26,7 @@ class ConfeiteiroDAO
         $conn = Connection::getConn();
 
         $sql = "SELECT * FROM Confeiteiro c" .
-            " WHERE d.idConfeiteiro = ?";
+            " WHERE c.idConfeiteiro = ?";
         $stm = $conn->prepare($sql);
         $stm->execute([$id]);
         $result = $stm->fetchAll();
@@ -100,18 +99,10 @@ class ConfeiteiroDAO
             $confeiteiro = new Confeiteiro();
             $confeiteiro->setIdConfeiteiro($reg['idConfeiteiro'])
                 ->setNomeLoja($reg['nomeLoja'])
-                ->setMei($reg['mei']);
+                ->setMei($reg['mei'])
+                ->setUsuario($reg['idUsuario']);
             array_push($confeiteiros, $confeiteiro);
         }
-
-         // Verificar se 'nomeLoja' está definido antes de usá-lo, para evitar aviso de Undefined array key
-         $usuario = new Usuario();
-         $usuario->setId($reg['idUsuario']);
-         if (isset($reg['nomeCompleto'])) {
-             $usuario->setNome($reg['nomeCompleto']);
-         }
-         $confeiteiro->setUsuario($usuario);
-
         return $confeiteiros;
     }
 }

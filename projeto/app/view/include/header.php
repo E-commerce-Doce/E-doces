@@ -57,18 +57,19 @@
             font-family: Caveat;
             font-size: 30px;
         }
-         .navbar a{
-            border-left: 1px solid #FCCEAA;
-         }
 
         a{
-            color:#EA4961;
+            color: #000;
             font-weight: bolder;
         }
 
         .btn{
             background-color: #EA4961;
             color: #FCCEAA;
+        }
+
+        .navbar-item li{
+            margin-left: 30%;
         }
 
         footer {

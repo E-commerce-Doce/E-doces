@@ -6,29 +6,27 @@ require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
 
-<h3 class="text-center">
-    <?php if($dados['id'] == 0) echo "Inserir"; else echo "Alterar"; ?> 
-    Usuário
+<div class="container">
+    <h3 class="text-center" style="font-family:caveat; margin-top: 20px;">
+    <?php if($dados['id'] == 0) echo "Cadastrar"; else echo "Editar"; ?> 
+    Confeiteiro    
 </h3>
 
-<div class="container">
-    
     <div class="row" style="margin-top: 10px;">
-        
-        <div class="col-6">
+        <div class="col-8 mx-auto"> <!-- Aumentei a largura da coluna e centralizei -->
             <form id="frmConfeiteiro" method="POST" 
-                action="<?= BASEURL ?>/controller/ConfeiteiroController.php?action=save" >
+                action="<?= BASEURL ?>/controller/ConfeiteiroController.php?action=save">
 
                 <div class="form-group">
-                    <label for="txtNomeLoja">Nome da Loja:</label>
-                    <input class="form-control" type="text" id="txtNomeLoja" name="nomeLoja" 
+                    <label for="txtNomeLoja" class="font-weight-bold">Nome da Loja:</label> 
+                    <input class="form-control form-control-lg" type="text" id="txtNomeLoja" name="nomeLoja" 
                         maxlength="70" placeholder="Informe o nome da loja:"
-                        value="<?php echo (isset($dados[""]) ? $dados["confeiteiro"]->getNomeLoja() : ''); ?>" />
+                        value="<?php echo (isset($dados["confeiteiro"]) ? $dados["confeiteiro"]->getNomeLoja() : ''); ?>" />
                 </div>
 
                 <div class="form-group">
-                    <label for="txtMei">MEI:</label>
-                    <input class="form-control" type="text" id="txtMei" name="mei" 
+                    <label for="txtMei" class="font-weight-bold">MEI:</label> 
+                    <input class="form-control form-control-lg" type="text" id="txtMei" name="mei" 
                         maxlength="70" placeholder="Digite seu MEI"
                         value="<?php echo (isset($dados["confeiteiro"]) ? $dados["confeiteiro"]->getMei() : ''); ?>" />
                 </div>
@@ -36,8 +34,8 @@ require_once(__DIR__ . "/../include/menu.php");
                 <input type="hidden" id="hddId" name="id" 
                     value="<?= $dados['id']; ?>" />
 
-                <button type="submit" class="btn">Gravar</button>
-                <button type="reset" class="btn">Limpar</button>
+                <button type="submit" class="btn btn-primary">Gravar</button>
+                <button type="reset" class="btn btn-secondary">Limpar</button>
             </form>            
         </div>
 
@@ -46,13 +44,7 @@ require_once(__DIR__ . "/../include/menu.php");
         </div>
     </div>
 
-    <div class="row" style="margin-top: 30px;">
-        <div class="col-12">
-        <a class="btn" 
-                href="<?= BASEURL ?>/controller/ConfeiteiroController.php?action=list">Voltar</a>
-        </div>
-    </div>
-</div>
+
 
 <?php  
 require_once(__DIR__ . "/../include/footer.php");

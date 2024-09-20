@@ -3,6 +3,8 @@
 #Objetivo: classe Model para Usuario
 
 require_once(__DIR__ . "/enum/UsuarioPapel.php");
+// require_once(__DIR__ . "/model/Confeiteiro.php");
+
 
 class Usuario implements JsonSerializable{
 
@@ -14,6 +16,13 @@ class Usuario implements JsonSerializable{
     private ?string $login;
     private ?string $senha;
     private ?string $dataNascimento;
+
+    private ?Confeiteiro $confeiteiro;
+
+    public function __construct()
+    {
+        $this->confeiteiro = null;
+    }
 
     public function JsonSerialize():array{
         return array(""=> $this->id,
@@ -99,6 +108,20 @@ class Usuario implements JsonSerializable{
 
     public function setDataNascimento(?string $dataNascimento): self {
         $this->dataNascimento = $dataNascimento;
+        return $this;
+    }
+
+   
+    public function getConfeiteiro()
+    {
+        return $this->confeiteiro;
+    }
+
+   
+    public function setConfeiteiro($confeiteiro)
+    {
+        $this->confeiteiro = $confeiteiro;
+
         return $this;
     }
 }

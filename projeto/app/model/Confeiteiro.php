@@ -9,6 +9,8 @@ require_once(__DIR__ . "/Usuario.php");
         private ?string $nomeLoja;
         private ?string $mei;
         private Usuario $usuario;
+
+        
         
             
             public function getIdConfeiteiro(): ?int

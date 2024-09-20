@@ -6,14 +6,16 @@ require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
 
-<h3 class="text-center">Listagem Doce</h3>
+<h3 class="text-center" style="font-family:caveat; margin-top: 20px;">Sodie</h3>
 
 <div class="container">
     <div class="row">
         <div class="col-3">
-            <a class="btn "
-                href="<?= BASEURL ?>/controller/DoceController.php?action=create">
-                Inserir</a>
+            <?php if (isset($dados['usuario']) && $dados['usuario']->getPapel() === UsuarioPapel::CONFEITEIRO): ?>
+                <a class="btn btn-primary" href="<?= BASEURL ?>/controller/DoceController.php?action=create">
+                    Inserir
+                </a>
+            <?php endif; ?>
         </div>
 
         <div class="col-9">
@@ -30,23 +32,25 @@ require_once(__DIR__ . "/../include/menu.php");
                     <div class="card-body">
                         <h5 class="card-title"><?= $d->getNomeDoce(); ?></h5>
                         <p class="card-text"><?= $d->getDescricao(); ?></p>
-                        <ul class="list-group">
-                            <li class="list-group-item">Valor: R$ <?= $d->getValorFormatado(); ?></li>
-                            <li class="list-group-item">Ingredientes: <?= $d->getIngredientes(); ?></li>
-                            <li class="list-group-item">Nome da Loja: <?= $d->getConfeiteiro()->getNomeLoja(); ?></li>
-                            <li class="list-group-item">Tipo de Doce: <?= $d->getTipoDoce()->getDescricao(); ?></li>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item fs-5">Valor: R$ <?= $d->getValorFormatado(); ?></li>
+                            <li class="list-group-item fs-5 fw-bold">Ingredientes: <?= $d->getIngredientes(); ?></li>
+                            <li class="list-group-item fs-5">Nome da Loja: <?= $d->getConfeiteiro()->getNomeLoja(); ?></li>
+                            <li class="list-group-item fs-5">Tipo de Doce: <?= $d->getTipoDoce()->getDescricao(); ?></li>
                         </ul>
+
                     </div>
                     <div class="card-body">
-                        <a href="<?= BASEURL ?>/controller/DoceController.php?action=edit&id=<?= $d->getIdDoces() ?>" class="card-link btn btn-primary">Alterar</a>
-                        <a href="<?= BASEURL ?>/controller/DoceController.php?action=delete&id=<?= $d->getIdDoces() ?>" onclick="return confirm('Confirma a exclusão do doce?');" class="card-link btn btn-danger">Excluir</a>
+                        <?php if (isset($dados['usuario']) && $dados['usuario']->getPapel() === UsuarioPapel::CONFEITEIRO): ?>
+                            <a href="<?= BASEURL ?>/controller/DoceController.php?action=edit&id=<?= $d->getIdDoces() ?>" class="card-link btn btn-primary">Alterar</a>
+                            <a href="<?= BASEURL ?>/controller/DoceController.php?action=delete&id=<?= $d->getIdDoces() ?>" onclick="return confirm('Confirma a exclusão do doce?');" class="card-link btn btn-danger">Excluir</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 
-</div>
 </div>
 
 <?php

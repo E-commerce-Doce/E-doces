@@ -13,6 +13,8 @@ class ConfeiteiroController extends Controller
 
     private ConfeiteiroDAO $confeiteiroDAO;
     private ConfeiteiroService $confeiteiroService;
+    private UsuarioDAO $usuarioDao;
+    private Usuario $usuario;
 
 
 
@@ -23,6 +25,8 @@ class ConfeiteiroController extends Controller
 
         $this->confeiteiroDAO = new ConfeiteiroDAO();
         $this->confeiteiroService = new ConfeiteiroService();
+        $this->usuario = new Usuario();
+
 
         $this->handleAction();
     }
@@ -34,16 +38,15 @@ class ConfeiteiroController extends Controller
         $dados["id"] = isset($_POST['id']) ? (int)$_POST['id'] : 0;
         $nomeLoja = isset($_POST['nomeLoja']) ? trim($_POST['nomeLoja']) : NULL;
         $mei = isset($_POST['mei']) ? trim($_POST['mei']) : NULL;
+        $dados["idUsuario"] = isset($_POST['idUsuario']) ? (int)$_POST['idUsuario'] : 0;
+
+
 
         //Cria objeto Confeiteiro
         $confeiteiro = new Confeiteiro();
         $confeiteiro->setNomeLoja($nomeLoja);
         $confeiteiro->setMei($mei);
-
-        $usu = new Usuario();
-        $usu->setId($this->getIdUsuarioLogado());
-        $confeiteiro->setUsuario($usu);
-
+        $confeiteiro->getUsuario()->getId();
 
         //Validar os dados
         $erros = $this->confeiteiroService->validarDados($confeiteiro,);
@@ -73,6 +76,13 @@ class ConfeiteiroController extends Controller
         $this->loadView("confeiteiro/formConfeiteiro.php", $dados, $msgsErro);
     }
 
+    // Método list
+    protected function list(string $msgErro = "", string $msgSucesso = "")
+    {
+        $confeiteiros = $this->confeiteiroDAO->list();
+        $dados["lista"] = $confeiteiros;
+        $this->loadView("usuario/list.php", $dados, $msgErro, $msgSucesso);
+    }
 
     //Método create
     protected function create()
@@ -95,7 +105,8 @@ class ConfeiteiroController extends Controller
 
 
             $this->loadView("confeiteiro/formConfeiteiro.php", $dados);
-        } }
+        }
+    }
 
 
     //Método delete 
@@ -105,8 +116,8 @@ class ConfeiteiroController extends Controller
 
         if ($confeiteiro) {
             $this->confeiteiroDAO->deleteById($confeiteiro->getIdConfeiteiro());
+        }
     }
-}
 
     //Método para buscar o usuário com base no ID recebido por parâmetro GET
     private function findConfeiteiroById()
@@ -115,8 +126,9 @@ class ConfeiteiroController extends Controller
         if (isset($_GET['id']))
             $id = $_GET['id'];
 
-        $usuario = $this->confeiteiroDAO->findById($id);
-        return $usuario;
+        $confeiteiro = $this->confeiteiroDAO->findById($id);
+        return $confeiteiro;
     }
 }
 new ConfeiteiroController();
+
