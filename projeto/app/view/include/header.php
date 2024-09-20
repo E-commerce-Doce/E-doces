@@ -66,6 +66,7 @@
         .btn{
             background-color: #EA4961;
             color: #FCCEAA;
+            font-family: montserrat;
         }
 
         .navbar-item li{

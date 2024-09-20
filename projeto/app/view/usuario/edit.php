@@ -10,10 +10,10 @@ require_once(__DIR__ . "/../include/menu.php");
     <div class="row">
         <div class="col-md-8 offset-md-2 mt-5">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="font-family: caveat; font-size:25px">
                     Detalhes do Perfil
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="font-family: montserrat;">
                     <dl class="row">
                         
                         <dt class="col-sm-3">Nome:</dt>
