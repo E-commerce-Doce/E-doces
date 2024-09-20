@@ -5,7 +5,7 @@
 require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
-<div class="container">
+<div class="container mt-5">
     <h3 class="text-center" style="font-family:caveat;">
         <?php if($dados['id'] == 0) echo "Cadastre-se aqui"; else echo "Editar Perfil"; ?> 
     </h3>

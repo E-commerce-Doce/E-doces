@@ -72,6 +72,7 @@
             margin-left: 30%;
         }
 
+
         footer {
             background-color: #F5827D;
         }

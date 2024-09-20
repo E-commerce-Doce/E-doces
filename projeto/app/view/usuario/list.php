@@ -6,10 +6,11 @@ require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
 
-<h3 class="text-center">Usuários Cadastrados</h3>
-
-<div class="container">
-    <div class="row">
+<h3 class="text-center font-weight-light" style="font-family:caveat; margin-top: 20px;">
+    Usuários Cadastrados</h3>
+<div style="margin:0% auto ; width:80;  display: flex; justify-content: center; 
+    align-items: center;">
+    <div class="row" >
         <!-- <div class="col-3">
             <a class="btn "
                 href="<?= BASEURL ?>/controller/UsuarioController.php?action=create">
@@ -21,20 +22,20 @@ require_once(__DIR__ . "/../include/menu.php");
         </div>
     </div>
 
-    <div class="row" style="margin-top: 10px;">
-        <div class="col-12">
+    <div class="row" style="margin-top: 13px; font-family:montserrat">
+        <div >
             <table id="tabUsuarios" class='table table-striped table-bordered'>
-                <thead>
-                    <tr class="p-5">
+                <thead >
+                    <tr >
                         <!-- <th>ID</th> -->
-                        <th>Cpf</th>
+                        <th class="custom-width">Cpf</th>
                         <th>Nome</th>
-                        <th>Telefone</th>
-                        <th>Login</th>
+                        <th class="custom-width">Telefone</th>
+                        <th class="custom-width">Login</th>
                         <th>Data de Nascimento</th>
                         <th>Papel</th>
                         <th >Loja</th>
-                        <th>Mei</th>
+                        <th class="custom-width">Mei</th>
                         <th>Alterar</th>
                         <th>Excluir</th>
                     </tr>

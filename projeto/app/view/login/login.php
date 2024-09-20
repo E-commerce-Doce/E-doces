@@ -19,9 +19,12 @@ require_once(__DIR__ . "/../include/header.php");
     <div class="row" style="margin-top: 5%;">
         <div class="col-6">
             <h3 style="margin-left:10%;" class="estilo2">Login</h3>
+            <div class="col-7">
+            <?php include_once(__DIR__ . "/../include/msg.php") ?>
+        </div>
            
 
-            <h4 style="margin-left:5%; margin-top: 10%; font-family:caveat" class="estilo">Entre e encontre os melhores doces!</h4>
+            <h4 style="margin-left:5%; margin-top: 5%; font-family:caveat" class="estilo">Entre e encontre os melhores doces!</h4>
             <br>
 
 
@@ -46,10 +49,6 @@ require_once(__DIR__ . "/../include/header.php");
 
       
                
-        </div>
-
-        <div class="col-4">
-            <?php include_once(__DIR__ . "/../include/msg.php") ?>
         </div>
     </div>
 </div>

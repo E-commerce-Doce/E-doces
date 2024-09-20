@@ -6,8 +6,8 @@ require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
 
-<div class="container">
-    <h3 class="text-center" style="font-family:caveat; margin-top: 20px;">
+<div class="container mt-5">
+    <h3 class="text-center font-weight-bold" style="font-family:caveat; margin-top: 20px;">
     <?php if($dados['id'] == 0) echo "Cadastrar"; else echo "Editar"; ?> 
     Confeiteiro    
 </h3>
