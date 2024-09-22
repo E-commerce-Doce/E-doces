@@ -24,7 +24,7 @@
             --cor-rosa-claro: #FCCEAA;
             --cor-rosa-escuro: #EA4961;
             --font-principal: Caveat;
-            --font-secundaria: Montserrant;
+            --font-secundaria: Montserrat;
         }
 
         body {
@@ -39,22 +39,22 @@
 
         }
         .estilo{
-            font-family:(var(--font-principal));
+            font-family:var(--font-principal);
         }
         .estilo2{
-            font-family:(var(--font-secundaria));
+            font-family:var(--font-secundaria);
         }
         .color1{
-            color: (var(--cor-verde));
+            color: var(--cor-verde);
         }
         .color2{
-            color: (var(--cor-rosa-claro));
+            color: var(--cor-rosa-claro);
         }  
         .cor3{
-            color: (var(--cor-rosa-escuro));
+            color: var(--cor-rosa-escuro);
         }
         .navbar-brand{
-            font-family: Caveat;
+            font-family:var(--font-principal);
             font-size: 30px;
         }
 
@@ -66,7 +66,7 @@
         .btn{
             background-color: #EA4961;
             color: #FCCEAA;
-            font-family: montserrat;
+            font-family:var(--font-secundaria);
         }
 
         .navbar-item li{
