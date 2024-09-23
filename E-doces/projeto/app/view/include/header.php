@@ -19,12 +19,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-        :root {
+        :root{
             --cor-verde: #9BB899;
             --cor-rosa-claro: #FCCEAA;
             --cor-rosa-escuro: #EA4961;
             --font-principal: Caveat;
-            --font-secundaria: Montserrant;
+            --font-secundaria: Montserrat;
         }
 
         body {
@@ -34,99 +34,42 @@
 
         .navbar {
             background-color: #9BB899;
-            color: #9BB899;
+            color:#9BB899;
             font-weight: bolder;
 
         }
-
-        .estilo {
-            font-family: (var(--font-principal));
+        .estilo{
+            font-family:var(--font-principal);
         }
-
-        .estilo2 {
-            font-family: (var(--font-secundaria));
+        .estilo2{
+            font-family:var(--font-secundaria);
         }
-
-        .color1 {
-            color: (var(--cor-verde));
+        .color1{
+            color: var(--cor-verde);
         }
-
-        .color2 {
-            color: (var(--cor-rosa-claro));
+        .color2{
+            color: var(--cor-rosa-claro);
+        }  
+        .cor3{
+            color: var(--cor-rosa-escuro);
         }
-
-        .cor3 {
-            color: (var(--cor-rosa-escuro));
-        }
-
-
-        .imgLogin {
-
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            left: 750px;
-            top: 0px;
-
-        }
-
-        .input-group {
-            position: relative;
-        }
-
-        .input-group .form-control {
-            padding-right: 40px;
-        }
-
-
-        .input-group-append {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-
-        .btn {
-            width: auto;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .input-group-append {
-            cursor: pointer;
-        }
-
-        #togglePassword {
-            background-color: transparent;
-            border: none;
-        }
-
-        #togglePassword:hover {
-            color: #007BFF;
-        }
-
-
-        .navbar-brand {
-            font-family: Caveat;
+        .navbar-brand{
+            font-family:var(--font-principal);
             font-size: 30px;
         }
 
-        a {
+        a{
             color: #000;
             font-weight: bolder;
         }
 
-        .btn {
+        .btn{
             background-color: #EA4961;
             color: #FCCEAA;
-            font-family: montserrat;
+            font-family:var(--font-secundaria);
         }
 
-        .navbar-item li {
+        .navbar-item li{
             margin-left: 30%;
         }
 
