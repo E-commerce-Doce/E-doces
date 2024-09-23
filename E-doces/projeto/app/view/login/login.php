@@ -17,17 +17,17 @@ require_once(__DIR__ . "/../include/header.php");
 
     <div class="row" style="margin-top: 3%;">
         <div class="col-6">
-            <h3 style="margin-left:4%;" class="estilo2"> Login </h3>
+            <h3 style="margin-left:4%; color: black;" class="estilo"> Login </h3>
             <div class="col-7">
                 <?php include_once(__DIR__ . "/../include/msg.php") ?>
             </div>
 
-            <h4 style="margin-left:5%; margin-top: 5%; font-family:caveat" class="estilo">Entre e encontre os melhores doces!</h4>
+            <h4 style="margin-left:5%; margin-top: 5%; font-family:caveat; color: black;" class="estilo">Entre e encontre os melhores doces!</h4>
             <br><br>
             <!-- Formulário de login -->
             <form id="frmLogin" action="./LoginController.php?action=logon" method="POST">
-                <div class="form-group estilo2">
-                    <label for="txtLogin" class="fw-bold"><b>Login</b></label>
+                <div class="form-group estilo">
+                    <label for="txtLogin" class="fw-bold" style="color: black;"><b>Login</b></label>
                     <br>
                     <input type="text" class="form-control" name="login" id="txtLogin"
                         maxlength="15" placeholder="Informe o login"
@@ -38,12 +38,13 @@ require_once(__DIR__ . "/../include/header.php");
                     <img class="imgLogin" src="\ProjetoIntegrador\E-doces\projeto\arquivos\imgLogin.png" alt="Descricao img">
                 </div>
 
-                <div class="form-group estilo2">
-                    <label for="txtSenha" class="fw-bold"><b>Senha</b></label>
+                <div class="form-group estilo">
+                    <label for="txtSenha" class="fw-bold" style="color: black;"><b>Senha</b></label>
                     <div class="input-group">
                         <input type="password" class="form-control" name="senha" id="txtSenha"
                             maxlength="15" placeholder="Informe a senha"
                             value="<?php echo isset($dados['senha']) ? $dados['senha'] : '' ?>" />
+
                         <div class="input-group-append">
                             <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
                                 <i class="fas fa-eye"></i>
@@ -65,7 +66,7 @@ require_once(__DIR__ . "/../include/header.php");
                 </script>
 
                 <br>
-                <button type="submit" style="background-color:#9BB899; color:aliceblue;" class="btn estilo2">Logar</button>
+                <button type="submit" style="background-color:#9BB899; color:aliceblue;" class="btn estilo">Logar</button>
             </form>
         </div>
     </div>
