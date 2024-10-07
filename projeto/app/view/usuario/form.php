@@ -67,6 +67,9 @@ require_once(__DIR__ . "/../include/menu.php");
                             value="<?php echo isset($dados['confSenha']) ? $dados['confSenha'] : '';?>"/>
                     </div>
                 </div>
+                <div>
+                    <img class="" src="\ProjetoIntegrador\E-doces\projeto\arquivos\imgCadastro.png" alt="Imagem aqui">
+                </div>
 
                 <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
                 <button type="submit" class="btn btn-primary">Cadastrar</button>

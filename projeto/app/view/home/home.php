@@ -28,7 +28,7 @@ require_once(__DIR__ . "/../include/menu.php");
         <h2 class="estilo pb-2" style="font-size:larger;">Quer transformar sua paixão por confeitaria em um negócio de sucesso?</h2>
         <br>
         <p class="estilo">Aqui no A'MEIs, você tem a oportunidade de se tornar um confeiteiro e compartilhar seus doces com o Barsil! Para começar essa jornada deliciosa, basta entrar em contato.</p>
-        <p class="estilo">Envie um e-mail para <a style="font-family:Montserrat;color:#FCCEAA; font-weight: bolder;" href="ameis.contato@gmail.com">ameis.contato@gmail.com</a>, e nossa equipe irá orientá-lo em cada passo para cadastrar seus produtos em nossa plataforma.</p>
+        <p class="estilo">Envie um e-mail para <a style="font-family:Montserrat;color:#FCCEAA; font-weight: bolder;" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqTgCcfcPJnKxFxjTKwXzzQrQpLNcXHHrtRNpXwKJQVJpdNqHhqJWLBBKkcxRzJLzgBHgq">ameis.contato@gmail.com</a>, e nossa equipe irá orientá-lo em cada passo para cadastrar seus produtos em nossa plataforma.</p>
     </div>
     <div class="col">
         <img class="imgC rounded float-end" src="../../../projeto/arquivos/SonhoDoce.png" alt="">
