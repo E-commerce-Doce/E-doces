@@ -5,7 +5,7 @@
     <div class="text-center p-4">
         © 2023 Copyright:
         <a class="text-reset fw-bold" style="color:#FCCEAA" href="https://foz.ifpr.edu.br" target="blank">IFPR (Campus Foz do Iguaçu)</a>
-    </div>      
+    </div>   
 </footer>
 
 <!-- BOOTSTRAP: scripts requeridos pelo framework -->

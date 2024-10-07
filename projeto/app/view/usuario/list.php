@@ -6,27 +6,20 @@ require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
 
-<h3 class="text-center font-weight-light" style="font-family:caveat; margin-top: 20px;">
-    Usuários Cadastrados</h3>
+<h3 class="text-center font-weight-light" style="font-family:caveat; margin-top: 20px;">Usuários Cadastrados</h3>
+
+<div class="col-3">
+    <?php require_once(__DIR__ . "/../include/msg.php"); ?>
+</div>
+
 <div style="margin:0% auto ; width:80;  display: flex; justify-content: center; 
     align-items: center;">
-    <div class="row" >
-        <!-- <div class="col-3">
-            <a class="btn "
-                href="<?= BASEURL ?>/controller/UsuarioController.php?action=create">
-                Inserir</a>
-        </div> -->
-
-        <div class="col-9">
-            <?php require_once(__DIR__ . "/../include/msg.php"); ?>
-        </div>
-    </div>
 
     <div class="row" style="margin-top: 13px; font-family:montserrat">
-        <div >
+        <div>
             <table id="tabUsuarios" class='table table-striped table-bordered'>
-                <thead >
-                    <tr >
+                <thead>
+                    <tr>
                         <!-- <th>ID</th> -->
                         <th class="custom-width">Cpf</th>
                         <th>Nome</th>
@@ -34,7 +27,7 @@ require_once(__DIR__ . "/../include/menu.php");
                         <th class="custom-width">Login</th>
                         <th>Data de Nascimento</th>
                         <th>Papel</th>
-                        <th >Loja</th>
+                        <th>Loja</th>
                         <th class="custom-width">Mei</th>
                         <th>Alterar Papel</th>
                         <th>Excluir</th>
@@ -50,10 +43,10 @@ require_once(__DIR__ . "/../include/menu.php");
                             <td><?= $usu->getLogin(); ?></td>
                             <td><?= $usu->getDataNascimentoFormatada(); ?></td>
                             <td><?= $usu->getPapel(); ?></td>
-                            <td><?= $usu->getConfeiteiro() ? $usu->getConfeiteiro()->getNomeLoja() : 'N/A'?></td>
-                            <td><?= $usu->getConfeiteiro() ? $usu->getConfeiteiro()->getMei() : 'N/A'?></td>
+                            <td><?= $usu->getConfeiteiro() ? $usu->getConfeiteiro()->getNomeLoja() : 'N/A' ?></td>
+                            <td><?= $usu->getConfeiteiro() ? $usu->getConfeiteiro()->getMei() : 'N/A' ?></td>
                             <td>
-                                <?php if($usu->getPapel() == UsuarioPapel::CLIENTE): ?>
+                                <?php if ($usu->getPapel() == UsuarioPapel::CLIENTE): ?>
                                     <a class="btn"
                                         href="<?= BASEURL ?>/controller/ConfeiteiroController.php?action=create&idUsuario=<?= $usu->getId(); ?>">
                                         Confeiteiro</a>
@@ -73,5 +66,5 @@ require_once(__DIR__ . "/../include/menu.php");
 </div>
 
 <!-- <?php
-// require_once(__DIR__ . "/../include/footer.php");
-?> -->
+        // require_once(__DIR__ . "/../include/footer.php");
+        ?> -->

@@ -12,26 +12,38 @@ class UsuarioService
 
         //Validar campos vazios
         if (!$usuario->getNome())
-            array_push($erros, "O campo [Nome] é obrigatório.");
+            array_push($erros, "O campo Nome é obrigatório.");
 
         if (!$usuario->getCpf())
-            array_push($erros, "O campo [CPF] é obrigatório.");
+            array_push($erros, "O campo CPF é obrigatório.");
 
         if (!$usuario->getTelefone())
-            array_push($erros, "O campo [Telefone] é obrigatório.");
+            array_push($erros, "O campo Telefone é obrigatório.");
 
         if (!$usuario->getLogin())
-            array_push($erros, "O campo [Login] é obrigatório.");
+            array_push($erros, "O campo Login é obrigatório.");
 
         if (!$usuario->getSenha())
-            array_push($erros, "O campo [Senha] é obrigatório.");
+            array_push($erros, "O campo Senha é obrigatório.");
 
         if (!$confSenha)
-            array_push($erros, "O campo [Confirmação da senha] é obrigatório.");
+            array_push($erros, "O campo Confirmação da senha é obrigatório.");
 
-        if (!$usuario->getDataNascimento())
-            array_push($erros, "O campo [Data de Nascimento] é obrigatório.");
+        if (!$usuario->getDataNascimento()){
+            array_push($erros, "O campo Data de Nascimento é obrigatório.");
 
+        }else {
+                // Validação da idade
+                $nascimento = new DateTime($usuario->getDataNascimento());
+                $hoje = new DateTime();
+                $idade = $hoje->diff($nascimento)->y;
+        
+                // Verificar se a idade é menor que 18 anos
+                if ($idade < 16) {
+                    array_push($erros, "A idade deve ser maior ou igual a 18 anos.");
+        }
+
+       
 
         //Validar se a senha é igual a contra senha
         if ($usuario->getSenha() && $confSenha && $usuario->getSenha() != $confSenha)
@@ -39,4 +51,5 @@ class UsuarioService
 
         return $erros;
     }
+}
 }

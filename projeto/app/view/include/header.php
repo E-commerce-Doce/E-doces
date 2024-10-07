@@ -121,7 +121,7 @@
             color: #000;
             font-weight: bolder;
         }
-
+        
         .btn {
             background-color: #EA4961;
             color: #FCCEAA;
