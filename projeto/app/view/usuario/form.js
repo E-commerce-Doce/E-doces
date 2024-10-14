@@ -28,8 +28,8 @@ document.getElementById('txtDataNascimento').addEventListener('change', function
     }
 
     // Definir os limites de idade (18 a 100 anos)
-    const idadeMinima = 18;
-    const idadeMaxima = 100;
+    const idadeMinima = 16;
+    const idadeMaxima = 1000;
     const erroMensagem = document.getElementById('dataNascimentoErro');
 
     // Validação da idade

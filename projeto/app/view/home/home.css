@@ -24,11 +24,11 @@ body {
     width: 100%;
 }
 
-.row {
+/* .row {
     display: flex;
     align-items: center;
     height: 50%;
-}
+} */
 
 .estilo {
     font-family: var(--font-secundaria);
@@ -36,7 +36,7 @@ body {
 }
 
 .estilo2 {
-    font-size: larger;
+    font-size: 50px;
     font-family: var(--font-principal);
     color: #FFF;
 }
@@ -78,8 +78,11 @@ button:hover {
 }
 
 .imgCupCake {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
+    width: 600px;
+    position: absolute;
+    top: -300px;
+    z-index: -1;
+    right: 0;
+    border-radius: 50% 0 0 50% ;
 
 }

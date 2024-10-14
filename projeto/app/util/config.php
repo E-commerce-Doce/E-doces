@@ -8,7 +8,7 @@ ini_set("display_errors", 1);
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'db_ecommerce');
 define('DB_USER', 'root');
-define('DB_PASSWORD', '20053011');
+define('DB_PASSWORD', 'root');
 
 //Caminho para adionar imagens, scripts e chamar páginas no sistema
 //Deve ter o nome da pasta do projeto no servidor APACHE

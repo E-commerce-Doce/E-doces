@@ -43,7 +43,7 @@
             font-size: 15px;
         }
 
-        .imgC{
+        .imgCadastro{
             
 
             position: absolute;
