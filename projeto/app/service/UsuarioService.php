@@ -40,7 +40,7 @@ class UsuarioService
         
                 // Verificar se a idade é menor que 18 anos
                 if ($idade < 16) {
-                    array_push($erros, "A idade deve ser maior ou igual a 18 anos.");
+                    array_push($erros, "Para se cadastrar sua idade deve ser superior a 16!");
         }
 
        

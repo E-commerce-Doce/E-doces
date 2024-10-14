@@ -68,8 +68,8 @@ require_once(__DIR__ . "/../include/menu.php");
                     </div>
                 </div>
                 <div>
-                    <img class="" src="\ProjetoIntegrador\E-doces\projeto\arquivos\imgCadastro.png" alt="Imagem aqui">
-                </div>
+                    <img class="imgC" src="\ProjetoIntegrador\E-doces\projeto\arquivos\imgCadastro.png" alt="Imagem aqui">
+                </div><br><br>
 
                 <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
                 <button type="submit" class="btn btn-primary">Cadastrar</button>

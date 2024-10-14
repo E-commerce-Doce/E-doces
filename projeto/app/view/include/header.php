@@ -42,6 +42,20 @@
         .form-control{
             font-size: 15px;
         }
+
+        .imgC{
+            
+
+            position: absolute;
+            width: 220px;
+            height: 230px;
+            left: 599px;
+            top: 230px;
+
+           /* transform: matrix(0.97, 0.25, -0.24, 0.97, 0, 0);*/
+
+        }
+
         .imgLogin {
 
             position: absolute;
