@@ -11,7 +11,7 @@ require_once(__DIR__ . "/../dao/UsuarioDAO.php");
 class ConfeiteiroController extends Controller
 {
 
-    private ConfeiteiroDAO $confeiteiroDAO;
+    private ConfeiteiroDAO $confeiteiroDao;
     private ConfeiteiroService $confeiteiroService;
     private UsuarioDAO $usuarioDao;
     private Usuario $usuario;
@@ -23,13 +23,20 @@ class ConfeiteiroController extends Controller
         if (! $this->usuarioLogado())
             exit;
 
-        $this->confeiteiroDAO = new ConfeiteiroDAO();
+        $this->confeiteiroDao = new ConfeiteiroDAO();
         $this->confeiteiroService = new ConfeiteiroService();
         $this->usuarioDao = new UsuarioDAO();
         $this->usuario = new Usuario();
 
 
         $this->handleAction();
+    }
+
+    protected function listLojas(string $msgErro = "", string $msgSucesso = ""){
+        $lojas = $this->confeiteiroDao->list();
+
+        $dados["lista"] = $lojas;
+         $this->loadView("confeiteiro/lojas.php", $dados, $msgErro, $msgSucesso);
     }
 
 
@@ -57,7 +64,7 @@ class ConfeiteiroController extends Controller
         if (empty($erros)) {
             // Persiste o objeto
             try {
-                $this->confeiteiroDAO->insert($confeiteiro);
+                $this->confeiteiroDao->insert($confeiteiro);
                 $this->usuarioDao->updatePapel($dados["idUsuario"], UsuarioPapel::CONFEITEIRO);
                 header("location: " . BASEURL . "/controller/UsuarioController.php?action=list");
                 exit; // É uma boa prática chamar exit após redirecionar
@@ -124,7 +131,7 @@ class ConfeiteiroController extends Controller
         if (isset($_GET['id']))
             $id = $_GET['id'];
 
-        $confeiteiro = $this->confeiteiroDAO->findById($id);
+        $confeiteiro = $this->confeiteiroDao->findById($id);
         return $confeiteiro;
     }
 }

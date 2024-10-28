@@ -42,14 +42,15 @@ class UsuarioService
                 if ($idade < 16) {
                     array_push($erros, "Para se cadastrar sua idade deve ser superior a 16!");
         }
+    }
 
        
 
         //Validar se a senha é igual a contra senha
         if ($usuario->getSenha() && $confSenha && $usuario->getSenha() != $confSenha)
-            array_push($erros, "O campo [Senha] deve ser igual ao [Confirmação da senha].");
+            array_push($erros, "O campo Senha deve ser igual ao Confirmação da senha.");
 
         return $erros;
     }
-}
+
 }

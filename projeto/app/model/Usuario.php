@@ -21,6 +21,7 @@ class Usuario implements JsonSerializable{
 
     public function __construct()
     {
+        $this->id= null;
         $this->confeiteiro = null;
     }
 

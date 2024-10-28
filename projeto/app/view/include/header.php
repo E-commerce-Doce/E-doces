@@ -50,7 +50,7 @@
             width: 220px;
             height: 230px;
             left: 599px;
-            top: 230px;
+            top: 260px;
 
            /* transform: matrix(0.97, 0.25, -0.24, 0.97, 0, 0);*/
 

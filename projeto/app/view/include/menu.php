@@ -23,17 +23,29 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
                 <li class="nav-item">
                     <a class="nav-link" href="<?= BASEURL . '/controller/UsuarioController.php?action=list' ?>">Usuários&nbsp;</a>
                 </li>
+
             <?php elseif ($usuarioPapel === UsuarioPapel::CONFEITEIRO): ?>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="<?= BASEURL . '/controller/DoceController.php?action=create' ?>">Cadastro (Doce)&nbsp;</a>
                 </li> -->
                 <li class="nav-item">
-                <a class="nav-link" href="<?= BASEURL . '/controller/DoceController.php?action=list' ?>">Doces Cadastrados&nbsp;</a>
-            </li>
+                    <a class="nav-link" href="<?= BASEURL . '/controller/DoceController.php?action=list' ?>">Doces Cadastrados&nbsp;</a>
+                </li>
+
+            <?php elseif ($usuarioPapel === UsuarioPapel::CLIENTE): ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?= BASEURL . '/controller/EnderecoController.php?action=list' ?>"> Meus Endereços &nbsp;</a>
+                </li>
+
             <?php endif; ?>
 
 
             <?php if ($nome !== "(Sessão expirada)"): ?> <!-- Verifica se o usuário está logado -->
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=listLojas' ?>"> Lojas &nbsp;</a>
+                </li>
+
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/UsuarioController.php?action=editProfile' ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -49,7 +61,7 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
                     </li>
 
                 <?php endif; ?>
-               
+
 
 
                 </ul>

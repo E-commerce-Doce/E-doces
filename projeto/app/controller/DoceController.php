@@ -60,8 +60,6 @@ class DoceController extends Controller
         $this->loadView("doce/listDoce.php", $dados,  $msgErro, $msgSucesso);
     }
 
-
-
     protected function save()
     {
         //Captura os dados do formulário
