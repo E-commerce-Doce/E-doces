@@ -20,6 +20,12 @@ require_once(__DIR__ . "/../include/menu.php");
 
                     <?php if (empty($dados['lista'])): ?>
                         <h5 class="text-center">Sem endereços cadastrados</h5>
+                        <div class="row mb-4">
+                            <div class="col-12 text-end">
+                            <a class="btn btn-primary" style="border-radius: 100%;  hight:3%; width:6%; font-size: 23px; " href="<?= BASEURL ?>/controller/EnderecoController.php?action=create">+</a>
+                            </div>
+                        </div>
+
                     <?php else: ?>
 
                         <div class="col-5 mb-3">
@@ -28,7 +34,7 @@ require_once(__DIR__ . "/../include/menu.php");
 
                         <div class="row mb-4">
                             <div class="col-12 text-end">
-                            <a class="btn btn-primary" style="border-radius: 100%; hight:3%; width:7%; font-size: 23px; " href="<?= BASEURL ?>/controller/EnderecoController.php?action=create">+</a>
+                            <a class="btn btn-primary" style="border-radius: 100%; hight:3%; width:6%; font-size: 15px; " href="<?= BASEURL ?>/controller/EnderecoController.php?action=create">+</a>
                             </div>
                         </div>
 

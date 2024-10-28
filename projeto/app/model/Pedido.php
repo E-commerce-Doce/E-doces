@@ -2,7 +2,7 @@
 #Nome do arquivo: Pedido.php
 #Objetivo: classe Model para Pedido
 
-require_once(__DIR__ . "/enum/FormaPagemento.php");
+require_once(__DIR__ . "/enum/FormaPagamento.php");
 require_once(__DIR__ . "/enum/TipoEntrega.php");
 require_once(__DIR__ . "/enum/StatusPedido.php");
 

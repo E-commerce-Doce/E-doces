@@ -38,6 +38,10 @@
             font-weight: bolder;
 
         }
+        .nav-link{
+            color:#fff;
+            font-weight: 500;
+        }
 
         .form-control{
             font-size: 15px;

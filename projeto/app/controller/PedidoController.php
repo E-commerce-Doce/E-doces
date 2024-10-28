@@ -7,6 +7,7 @@ require_once(__DIR__ . "/Controller.php");
 require_once(__DIR__ . "/../dao/UsuarioDAO.php");
 require_once(__DIR__ . "/../dao/ConfeiteiroDAO.php");
 require_once(__DIR__ . "/../dao/DoceDAO.php");
+require_once(__DIR__ . "/../dao/PedidoDAO.php");
 require_once(__DIR__ . "/../model/Usuario.php");
 
 class PedidoController extends Controller
@@ -17,7 +18,7 @@ class PedidoController extends Controller
     private ConfeiteiroDAO $confeiteiroDao;
     private UsuarioDAO $usuarioDao;
     private Usuario $usuario;
-
+    
 
     public function __construct()
     {
@@ -30,18 +31,27 @@ class PedidoController extends Controller
         $this->confeiteiroDao = new ConfeiteiroDAO();
         $this->usuarioDao = new UsuarioDAO();
 
-
         $this->handleAction();
     }
 
-    protected function listProdutos(int $idConfeiteiro, string $msgErro = "", string $msgSucesso = "")
+    protected function listProdutos(string $msgErro = "", string $msgSucesso = "")
     {
+        $idConfeiteiro  = 0;
+        if(isset($_GET["idConfeiteiro"]))
+            $idConfeiteiro = $_GET["idConfeiteiro"];
+
+        if(! $idConfeiteiro) {
+            echo "Loja inválida!";
+            exit;
+        }
+    
         $pedidos = $this->doceDao->listPorConfeiteiro($idConfeiteiro);
         $dados["lista"] = $pedidos;
 
 
-        var_dump($dados); // Verifique o conteúdo aqui para debug
+      
         $this->loadView("pedido/produtos.php", $dados);
-        exit; // Interrompe para ver o resultado
     }
 }
+
+new PedidoController();

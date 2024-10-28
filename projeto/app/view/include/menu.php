@@ -33,6 +33,11 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
                 </li>
 
             <?php elseif ($usuarioPapel === UsuarioPapel::CLIENTE): ?>
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=listLojas' ?>"> Lojas &nbsp;</a>
+                </li>
+                
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/EnderecoController.php?action=list' ?>"> Meus Endereços &nbsp;</a>
                 </li>
@@ -41,10 +46,6 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
 
 
             <?php if ($nome !== "(Sessão expirada)"): ?> <!-- Verifica se o usuário está logado -->
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=listLojas' ?>"> Lojas &nbsp;</a>
-                </li>
 
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/UsuarioController.php?action=editProfile' ?>">
