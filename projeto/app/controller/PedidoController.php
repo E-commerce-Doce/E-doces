@@ -45,12 +45,28 @@ class PedidoController extends Controller
             exit;
         }
     
-        $pedidos = $this->doceDao->listPorConfeiteiro($idConfeiteiro);
-        $dados["lista"] = $pedidos;
+        $doces = $this->doceDao->listPorConfeiteiro($idConfeiteiro);
+        $dados["lista"] = $doces;
+      
+        $this->loadView("pedido/produtos.php", $dados);
+    }
+    protected function descProduto(string $msgErro = "", string $msgSucesso = "")
+    {
+        $idDoce  = 0;
+        if(isset($_GET["idDoces"]))
+            $idDoce = $_GET["idDoces"];
+
+        if(! $idDoce) {
+            echo "Doce não encontrado!";
+            exit;
+        }
+    
+        $doce = $this->doceDao->findByIdCompleto($idDoce);
+        $dados["doce"] = $doce;
 
 
       
-        $this->loadView("pedido/produtos.php", $dados);
+        $this->loadView("pedido/descProdutos.php", $dados);
     }
 }
 

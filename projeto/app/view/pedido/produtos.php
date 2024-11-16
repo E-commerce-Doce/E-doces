@@ -28,7 +28,9 @@ require_once(__DIR__ . "/../include/menu.php");
             <div class="col-md-4 mb-4">
                 <div class="card" style="border: none; background-color: transparent;">
                     <?php if ($d->getCaminhoImagem()): ?>
+                        <a href="<?= BASEURL?> /controller/PedidoController.php?action=descProduto&idDoces=<?= $d->getIdDoces() ?>">
                         <img src="<?= URL_ARQUIVOS . "/" . $d->getCaminhoImagem() ?>" class="card-img-top" alt="Imagem do doce" style="height: 300px; width:100%; object-fit: cover;">
+                        </a>
                     <?php endif; ?>
                     <div class="card-body" style="font-family: 'Montserrat', sans-serif; color: black; text-align:center;">
                         <h5 class="card-title" style="font-family: caveat; font-weight: bold; font-size:40px "><?= $d->getNomeDoce(); ?></h5>

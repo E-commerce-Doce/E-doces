@@ -51,6 +51,29 @@ class DoceDAO
             " - Erro: mais de um usuário encontrado.");
     }
 
+    public function findByIdCompleto(int $id)
+    {
+        $conn = Connection::getConn();
+
+        $sql = "SELECT d.*, t.descricao AS tipo_descricao, c.nomeLoja as nomeLoja FROM Doce d 
+                JOIN TipoDoce t ON (t.idTipoDoce = d.idTipoDoce)
+                JOIN Confeiteiro c ON (c.idConfeiteiro = d.idConfeiteiro)
+                WHERE d.idDoces = ?";
+        $stm = $conn->prepare($sql);
+        $stm->execute([$id]);
+        $result = $stm->fetchAll();
+
+        $doces = $this->mapDoce($result);
+
+        if (count($doces) == 1)
+            return $doces[0];
+        elseif (count($doces) == 0)
+            return null;
+
+        die("DoceDAO.findByIdCompleto()" .
+            " - Erro: mais de um usuário encontrado.");
+    }
+
 
     public function insert(Doce $doce, int $idUsuarioLogado)
     {
