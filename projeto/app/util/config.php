@@ -8,11 +8,15 @@ ini_set("display_errors", 1);
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'db_ecommerce');
 define('DB_USER', 'root');
-define('DB_PASSWORD', 'root');
+//define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', '20053011');
+
 
 //Caminho para adionar imagens, scripts e chamar páginas no sistema
 //Deve ter o nome da pasta do projeto no servidor APACHE
 define('BASEURL', '/ProjetoIntegrador/E-doces/projeto/app');
+//define("BASE_PATH", __DIR__ . "/../../");
+
 
 //Nome do sistema
 define('APP_NAME', 'AMEIs');

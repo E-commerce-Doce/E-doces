@@ -33,11 +33,11 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
                 </li>
 
             <?php elseif ($usuarioPapel === UsuarioPapel::CLIENTE): ?>
-                
+
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=listLojas' ?>"> Lojas &nbsp;</a>
                 </li>
-                
+
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/EnderecoController.php?action=list' ?>"> Meus Endereços &nbsp;</a>
                 </li>
@@ -54,12 +54,20 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
                         </svg>
                     </a>
                 </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="<?= BASEURL . '/controller/CarrinhoController.php?action=addCarrinho' ?>">
+                            <i class="fas fa-shopping-cart"></i> 
+                        </a>
+                    </li>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="btn nav-link" href="<?= LOGOUT_PAGE ?>">Sair</a>
                     </li>
+
+                    
+
 
                 <?php endif; ?>
 

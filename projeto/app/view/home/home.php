@@ -13,7 +13,7 @@ require_once(__DIR__ . "/../include/menu.php");
         <h2 class="estilo2">Bem vindo à A'MEIs</h2>
         <h2 class="estilo" style="font-size:larger;">Onde cada doce é uma oportunidade!</h2>
         <p>Confeiteiros apaixonados criam delícias inesquecíveis para encantar seus clientes. Encontre, experimente e sinta o sabor, em um lugar só!</p>
-        <button class="btn">Faça seu pedido</button>
+        <a class="btn" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=listLojas' ?>">Faça seu pedido</a>
     </div>
 
     <div class="col-5">

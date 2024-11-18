@@ -14,6 +14,7 @@
     <title><?php echo APP_NAME; ?></title>
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
@@ -38,17 +39,18 @@
             font-weight: bolder;
 
         }
-        .nav-link{
-            color:#fff;
+
+        .nav-link {
+            color: #fff;
             font-weight: 500;
         }
 
-        .form-control{
+        .form-control {
             font-size: 15px;
         }
 
-        .imgCadastro{
-            
+        .imgCadastro {
+
 
             position: absolute;
             width: 220px;
@@ -56,7 +58,7 @@
             left: 599px;
             top: 260px;
 
-           /* transform: matrix(0.97, 0.25, -0.24, 0.97, 0, 0);*/
+            /* transform: matrix(0.97, 0.25, -0.24, 0.97, 0, 0);*/
 
         }
 
@@ -109,9 +111,16 @@
             color: #007BFF;
         }
 
+        .navbar-nav .nav-item i {
+            font-size: 1.5rem;
+            /* Ajusta o tamanho do ícone */
+            color: #EA4961;
+            /* Ajusta a cor do ícone */
+        }
+
         .estilo {
             font-family: var(--font-secundaria);
-            color:#fff;
+            color: #fff;
         }
 
         .estilo2 {
@@ -139,7 +148,7 @@
             color: #000;
             font-weight: bolder;
         }
-        
+
         .btn {
             background-color: #EA4961;
             color: #FCCEAA;
