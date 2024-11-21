@@ -45,4 +45,7 @@ require_once(__DIR__ . "/../include/menu.php");
     </div>
 </div>
 
+<?php
+require_once(__DIR__ . "/../include/footer2.php");
+?>
 
