@@ -24,11 +24,11 @@ body {
     width: 100%;
 }
 
-/* .row {
+.row {
     display: flex;
     align-items: center;
     height: 50%;
-} */
+}
 
 .estilo {
     font-family: var(--font-secundaria);

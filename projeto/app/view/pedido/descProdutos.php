@@ -44,5 +44,3 @@ require_once(__DIR__ . "/../include/menu.php");
             </div>
         </div>
     </div>
-
-</div>
