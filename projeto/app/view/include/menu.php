@@ -10,42 +10,42 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
 ?>
 
 <nav class="navbar navbar-expand-lg">
-        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-            <a class="navbar-brand" style="color: #EA4961;" href="#">&nbsp; A'MEIs &nbsp;</a>
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <a class="navbar-brand" style="color: #EA4961;" href="#">&nbsp; A'MEIs &nbsp;</a>
 
-            <ul class="navbar-nav ml-auto" style="font-family: montserrat; font-weight:320; ">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= HOME_PAGE ?>">Home &nbsp;</a>
+        <ul class="navbar-nav ml-auto" style="font-family: montserrat; font-weight:320; ">
+            <li class="nav-item active">
+                <a class="nav-link" href="<?= HOME_PAGE ?>">Home &nbsp;</a>
+            </li>
+
+
+            <?php if ($usuarioPapel === UsuarioPapel::ADMINISTRADOR): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= BASEURL . '/controller/UsuarioController.php?action=list' ?>">Usuários&nbsp;</a>
                 </li>
 
-
-                <?php if ($usuarioPapel === UsuarioPapel::ADMINISTRADOR): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL . '/controller/UsuarioController.php?action=list' ?>">Usuários&nbsp;</a>
-                    </li>
-
-                <?php elseif ($usuarioPapel === UsuarioPapel::CONFEITEIRO): ?>
-                    <!-- <li class="nav-item">
+            <?php elseif ($usuarioPapel === UsuarioPapel::CONFEITEIRO): ?>
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="<?= BASEURL . '/controller/DoceController.php?action=create' ?>">Cadastro (Doce)&nbsp;</a>
                 </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL . '/controller/DoceController.php?action=list' ?>">Doces Cadastrados&nbsp;</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= BASEURL . '/controller/DoceController.php?action=list' ?>">Doces Cadastrados&nbsp;</a>
+                </li>
 
             <?php elseif ($usuarioPapel === UsuarioPapel::CLIENTE): ?>
-                
+
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=listLojas' ?>"> Lojas &nbsp;</a>
                 </li>
-                
+
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/EnderecoController.php?action=list' ?>"> Meus Endereços &nbsp;</a>
                 </li>
 
-                <?php endif; ?>
+            <?php endif; ?>
 
 
-                <?php if ($nome !== "(Sessão expirada)"): ?> <!-- Verifica se o usuário está logado -->
+            <?php if ($nome !== "(Sessão expirada)"): ?> <!-- Verifica se o usuário está logado -->
 
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= BASEURL . '/controller/UsuarioController.php?action=editProfile' ?>">
@@ -54,23 +54,20 @@ $usuarioPapel = isset($_SESSION[SESSAO_USUARIO_PAPEL]) ? $_SESSION[SESSAO_USUARI
                         </svg>
                     </a>
                 </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="<?= BASEURL . '/controller/CarrinhoController.php?action=addCarrinho' ?>">
+                            <i class="fas fa-shopping-cart"></i> 
+                        </a>
+                    </li>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="btn nav-link" href="<?= LOGOUT_PAGE ?>">Sair</a>
                     </li>
+                <?php endif; ?>
+                </ul>
+        </ul>
 
-                    <?php endif; ?>
-
-
-
-                    </ul>
-            </ul>
-
-
-
-
-
-        </div>
+    </div>
 </nav>
