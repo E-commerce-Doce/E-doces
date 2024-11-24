@@ -165,7 +165,7 @@
 
 
         footer {
-            background-color: #F5827D;
+            background-color: #EA4961;
         }
     </style>
 </head>

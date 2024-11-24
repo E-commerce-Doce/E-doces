@@ -19,6 +19,60 @@ body {
     font-weight: bolder;
 }
 
+.info{
+    height: 500px;  
+    display: flex; 
+    align-items: center;
+}
+
+.sobre{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 30px;
+    background-color: #9BB899; 
+    margin: 20px; 
+    border-radius: 10px; 
+}
+
+.cupSobre{
+    max-width: 80%; 
+    height: auto;
+    border-radius: 70% 70% 70% 70%;
+}
+
+.estiloSob2{
+    color: whitesmoke;
+    font-family: var(--font-principal);
+    font-size: 4em;
+    text-align: left;
+}
+
+.estiloSob{
+    color: whitesmoke;
+    font-size: 1.2em;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.conf{
+    margin: 20px;
+    padding: 50px;
+}
+
+.icone{
+    background-color: #EA4961; 
+    width: 40px; 
+    height: 40px; 
+    margin: 10px; 
+    border-radius:10px;
+}
+
+.texIcon{
+    color: whitesmoke; 
+    margin:5px;
+}
+
 .imgC {
     align-items: center;
     width: 100%;
@@ -81,7 +135,7 @@ button:hover {
 .imgCupCake {
     width: 600px;
     position: absolute;
-    top: -300px;
+    top: -450px;
     z-index: -1;
     right: 0;
     border-radius: 50% 0 0 50% ;

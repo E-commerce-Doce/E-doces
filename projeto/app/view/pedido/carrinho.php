@@ -16,7 +16,7 @@ if (!isset($_SESSION['carrinho']) || count($_SESSION['carrinho']) === 0) {
 }
 ?>
 
-<div class="container mt-5">
+<div class="container mt-5" style="font-family: Montserrat;">
     <h2>Carrinho de Compras</h2>
 
     <?php
