@@ -27,7 +27,7 @@ require_once(__DIR__ . "/../include/menu.php");
                     <div class="form-group col-6">
                         <label for="txtCep" class="font-weight-bold">Cep:</label> <!-- Negrito -->
                         <input class="form-control form-control-lg" type="text" id="txtCep" name="cep"
-                            maxlength="70" placeholder="Informe seu Cep"
+                            maxlength="9" placeholder="Informe seu Cep"
                             value="<?php echo (isset($dados["endereco"]) ? $dados["endereco"]->getCep() : ''); ?>" />
                     </div>
                     <div class="form-group col-2" style="margin: auto; margin-top:35px;">

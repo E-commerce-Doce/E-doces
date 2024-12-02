@@ -13,13 +13,13 @@ require_once(__DIR__ . "/../include/menu.php");
         <?php foreach ($dados['lista'] as $loja): ?>
             <div class="col-md-4 col-sm-6 store-card">
                 <div class="card" style="border: none; background-color: transparent;">
+                <a href="<?= BASEURL ?>/controller/PedidoController.php?action=listProdutos&idConfeiteiro=<?= $loja['idConfeiteiro'] ?>" class="text-decoration-none">
                     <!-- Imagem da loja -->
                     <img  src="../../../projeto/arquivos/Logo_chapeu.png" class="card-img-top" alt="Imagem da loja">
                     
                     <div class="card-body">
                         <!-- Nome da loja como link para a listagem de produtos -->
                         <h5 class="text-center font-weight-bold" style="font-size:30px; font-family: 'Caveat', cursive;">
-                            <a href="<?= BASEURL ?>/controller/PedidoController.php?action=listProdutos&idConfeiteiro=<?= $loja['idConfeiteiro'] ?>" class="text-decoration-none">
                                 <?= $loja['nomeLoja'] ?>
                             </a>
                         </h5>

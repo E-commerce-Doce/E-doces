@@ -99,8 +99,8 @@ class ConfeiteiroDAO
             $confeiteiro = new Confeiteiro();
             $confeiteiro->setIdConfeiteiro($reg['idConfeiteiro'])
                 ->setNomeLoja($reg['nomeLoja'])
-                ->setMei($reg['mei'])
-                ->setUsuario($reg['idUsuario']);
+                ->setMei($reg['mei']);
+                //->setUsuario($reg['idUsuario']);
             array_push($confeiteiros, $confeiteiro);
 
             $usuario = new Usuario();

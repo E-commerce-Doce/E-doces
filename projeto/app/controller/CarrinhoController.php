@@ -4,14 +4,15 @@ ini_set("display_errors", 1);
 
 require_once(__DIR__ . "/Controller.php");
 require_once(__DIR__ . "/../dao/DoceDAO.php");
+require_once(__DIR__ . "/../dao/ConfeiteiroDAO.php");
 require_once(__DIR__ . "/../util/config.php");
-
 
 session_start();
 
 class CarrinhoController extends Controller
 {
     private DoceDAO $doceDao;
+    private ConfeiteiroDAO $confeiteiroDao;
 
     public function __construct()
     {
@@ -20,62 +21,148 @@ class CarrinhoController extends Controller
         }
 
         $this->doceDao = new DoceDAO();
+        $this->confeiteiroDao = new ConfeiteiroDAO();
+
         $this->handleAction();
     }
 
     protected function addCarrinho(string $msgErro = "", string $msgSucesso = "")
     {
-        // Valida se os dados necessários estão presentes no POST
-        if (!isset($_POST['idProduto'], $_POST['nomeProduto'], $_POST['valorProduto'], $_POST['imgProduto'])) {
-            $msgErro = "Dados do produto estão incompletos!";
-            
-            //Dados do confeiteiro do carrinho
-            
-            
-            $this->loadView("pedido/carrinho.php", [], $msgErro);
-            return;
-        }
-
-        // Captura os dados do produto enviados pelo formulário
-        $idProduto = (int)$_POST['idProduto'];
-        $nomeProduto = $_POST['nomeProduto'];
-        $valorProduto = (float)$_POST['valorProduto'];
-        $imgProduto = $_POST['imgProduto']; // Captura a imagem do produto
+        $idDoce = (int)$_POST['idDoce'];
+        $nomeDoce = $_POST['nomeDoce'];
+        $valorDoce = (float)$_POST['valorDoce'];
+        $imgDoce = $_POST['imgDoce'];
+        $idConfeiteiro = (int)$_POST['idConfeiteiro'];
+        //$nomeLoja = $_POST['nomeLoja'];
         $quantidade = isset($_POST['quantidade']) ? (int)$_POST['quantidade'] : 1;
 
-        // Inicializa o carrinho se não existir
         if (!isset($_SESSION['carrinho'])) {
             $_SESSION['carrinho'] = [];
+            $_SESSION['carrinhoIdConfeiteiro'] = 0;
         }
 
-        // Verifica se o produto já existe no carrinho
-        $produtoExistente = false;
-        foreach ($_SESSION['carrinho'] as $key => $produto) {
-            if ($produto['id'] == $idProduto) {
-                // Se já existir, atualiza a quantidade
+        $doceExistente = false;
+        foreach ($_SESSION['carrinho'] as $key => $doce) {
+            if ($doce['id'] == $idDoce) {
                 $_SESSION['carrinho'][$key]['quantidade'] += $quantidade;
-                $produtoExistente = true;
+                $doceExistente = true;
                 break;
             }
         }
 
-        // Adiciona o produto ao carrinho se ele ainda não existir
-        if (!$produtoExistente) {
+        if (!$doceExistente) {
+            if($_SESSION['carrinhoIdConfeiteiro'] > 0 && $_SESSION['carrinhoIdConfeiteiro'] != $idConfeiteiro) {
+                header("location: " . BASEURL . "/controller/PedidoController.php?action=descProduto&idDoces=" . $idDoce . "&erro=1");
+                exit;
+            }
+
+            $_SESSION['carrinhoIdConfeiteiro'] = $idConfeiteiro;
+
             $_SESSION['carrinho'][] = [
-                'id' => $idProduto,
-                'nome' => $nomeProduto,
-                'preco' => $valorProduto,
+                'id' => $idDoce,
+                'nome' => $nomeDoce,
+                'preco' => $valorDoce,
                 'quantidade' => $quantidade,
-                'imagem' => $imgProduto, // Adiciona o caminho da imagem
+                'imagem' => $imgDoce,
+                'idConfeiteiro' => $idConfeiteiro,
+                //'nomeLoja' => $nomeLoja,
             ];
+            //print_r($_SESSION['carrinho']);
+            //exit;
         }
 
-        // Define mensagem de sucesso
-        $msgSucesso = "Produto adicionado ao carrinho com sucesso!";
+        //$msgSucesso = "Doce adicionado ao carrinho com sucesso!";
+        //$dados["carrinho"] = $_SESSION['carrinho'];
+        //$this->loadView("pedido/carrinho.php", [], $msgErro, $msgSucesso);
 
-        // Carrega a view do carrinho
-        $dados["carrinho"] = $_SESSION['carrinho'];
-        $this->loadView("pedido/carrinho.php", $dados, $msgErro, $msgSucesso);
+        header("location: " . BASEURL . "/controller/CarrinhoController.php?action=listCarrinho");
+    }
+
+
+    protected function listCarrinho()
+    {
+        // Verifica se o carrinho está vazio
+        if (empty($_SESSION['carrinho'])) {
+            $msgErro = "Carrinho vazio!";
+            $this->loadView("pedido/carrinho.php", [], $msgErro);
+            return;
+        }
+
+        // Adiciona informações dos confeiteiros aos itens do carrinho
+        $confeiteiros = [];
+        /*
+        foreach ($_SESSION['carrinho'] as $item) {
+            //echo "<pre>" . print_r($item, true) . "</pre>";
+            //continue;
+
+
+            if (!isset($confeiteiros[$item['idConfeiteiro']])) {
+                $confeiteiro = $this->confeiteiroDao->findById($item['idConfeiteiro']);
+                $confeiteiros[$item['idConfeiteiro']] = $confeiteiro;
+            }
+            $item['confeiteiro'] = $confeiteiros[$item['idConfeiteiro']];
+        }
+        */
+        $dados['confeiteiro'] = $this->confeiteiroDao->findById($_SESSION['carrinhoIdConfeiteiro']);
+
+        //$dados["carrinho"] = $_SESSION['carrinho'];
+        $this->loadView("pedido/carrinho.php", $dados);
+    }
+
+    // Método para limpar o carrinho
+    protected function clearCarrinho()
+    {
+        unset($_SESSION['carrinho']);
+        unset($_SESSION['carrinhoIdConfeiteiro']);
+        //$msgSucesso = "Carrinho esvaziado com sucesso!";
+        $this->listCarrinho(); // Corrigido para chamar sem parâmetros extras
+    }
+
+    protected function deleteDoce()
+    {
+        $idDoce = (int)$_GET['idDoce'];
+
+        // Remove o doce do carrinho
+        foreach ($_SESSION['carrinho'] as $key => $doce) {
+            if ($doce['id'] == $idDoce) {
+                unset($_SESSION['carrinho'][$key]);
+                break;
+            }
+        }
+        // Reindexa o carrinho
+        $_SESSION['carrinho'] = array_values($_SESSION['carrinho']);
+
+        $this->listCarrinho();
+    }
+
+    protected function updateQuantidade()
+    {
+        if (isset($_POST['idDoce'], $_POST['quantidade'])) {
+            $idDoce = $_POST['idDoce'];
+            $quantidade = (int)$_POST['quantidade'];
+
+            // Verifica se a quantidade é válida (não menor que 1)
+            if ($quantidade < 1) {
+                echo 'Erro: Quantidade inválida.';
+                return;
+            }
+
+            // Verifica se o carrinho já existe na sessão
+            if (isset($_SESSION['carrinho'])) {
+                foreach ($_SESSION['carrinho'] as &$doce) {
+                    if ($doce['id'] == $idDoce) {
+                        // Atualiza a quantidade do doce no carrinho
+                        $doce['quantidade'] = $quantidade;
+                        break;
+                    }
+                }
+            }
+
+            // Responde com sucesso (status 200) para a requisição AJAX
+            echo json_encode(['status' => 'success', 'msg' => 'Carrinho atualizado com sucesso.']);
+        } else {
+            echo 'Erro: dados incompletos.';
+        }
     }
 }
 

@@ -27,7 +27,7 @@ require_once(__DIR__ . "/../include/menu.php");
                     <div class="form-group col-6">
                         <label for="txtCpf" class="font-weight-bold">CPF:</label> <!-- Negrito -->
                         <input class="form-control form-control-lg" type="text" id="txtCpf" name="cpf"
-                            maxlength="70" placeholder="Informe seu CPF"
+                            maxlength="14" placeholder="Informe seu CPF"
                             value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getCpf() : ''); ?>" />
                     </div>
                 </div>
@@ -36,7 +36,7 @@ require_once(__DIR__ . "/../include/menu.php");
                     <div class="form-group col-6">
                         <label for="txtTelefone" class="font-weight-bold">Telefone:</label> <!-- Negrito -->
                         <input class="form-control form-control-lg" type="text" id="txtTelefone" name="telefone"
-                            maxlength="70" placeholder="Informe seu telefone"
+                            maxlength="15" placeholder="Informe seu telefone"
                             value="<?php echo (isset($dados["usuario"]) ? $dados["usuario"]->getTelefone() : ''); ?>" />
                     </div>
 
