@@ -78,7 +78,7 @@ require_once(__DIR__ . "/../include/menu.php");
                 </div>
 
                 <div>
-                    <img class="imgCadastro" src="\ProjetoIntegrador\E-doces\projeto\arquivos\imgCadastro.png" alt="Imagem aqui">
+                    <img class="imgCadastro"  src="<?= BASEURL ?>/view/img/imgCadastro.png" alt="Imagem aqui">
                 </div>
 
             </form>

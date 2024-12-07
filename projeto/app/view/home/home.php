@@ -28,7 +28,7 @@ require_once(__DIR__ . "/../include/menu.php");
 
     <div class="row" style=" width: 100%;display: flex; justify-content: space-between;">
         <div class="col" style=" flex: 1;">
-            <img class="cupSobre" src="\ProjetoIntegrador\E-doces\projeto\arquivos\confeiteira.jpg" alt="">
+            <img class="cupSobre" src="<?= BASEURL ?>/view/img/confeiteira.jpg" alt="">
         </div>
     
         <div class="col-7" style="text-align: right;" >

@@ -15,7 +15,7 @@ require_once(__DIR__ . "/../include/menu.php");
                 <div class="card" style="border: none; background-color: transparent;">
                 <a href="<?= BASEURL ?>/controller/PedidoController.php?action=listProdutos&idConfeiteiro=<?= $loja['idConfeiteiro'] ?>" class="text-decoration-none">
                     <!-- Imagem da loja -->
-                    <img  src="../../../projeto/arquivos/Logo_chapeu.png" class="card-img-top" alt="Imagem da loja">
+                    <img  src="<?= BASEURL ?>/view/img/Logo_chapeu.png" class="card-img-top" alt="Imagem da loja">
                     
                     <div class="card-body">
                         <!-- Nome da loja como link para a listagem de produtos -->

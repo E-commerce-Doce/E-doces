@@ -37,7 +37,7 @@ require_once(__DIR__ . "/../include/header.php");
                 </div>
 
                 <div>
-                    <img class="imgLogin" src="\ProjetoIntegrador\E-doces\projeto\arquivos\imgLogin.png" alt="Descricao img">
+                    <img class="imgLogin" src="<?= BASEURL ?>/view/img/imgLogin.png" alt="Descricao img">
                 </div>
 
                 <div class="form-group estilo">
