@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema db_ecommerce
+-- Schema ameis
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema db_ecommerce
+-- Schema ameis
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `db_ecommerce` DEFAULT CHARACTER SET utf8 ;
-USE `db_ecommerce` ;
+CREATE SCHEMA IF NOT EXISTS `ameis` DEFAULT CHARACTER SET utf8 ;
+USE `ameis` ;
 
 -- -----------------------------------------------------
--- Table `db_ecommerce`.`Usuario`
+-- Table `ameis`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Usuario` (
+CREATE TABLE IF NOT EXISTS `ameis`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `cpf` VARCHAR(15) NULL,
   `papel` ENUM('CLIENTE', 'CONFEITEIRO', 'ADMINISTRADOR') NOT NULL DEFAULT 'CLIENTE',
@@ -33,9 +33,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_ecommerce`.`Confeiteiro`
+-- Table `ameis`.`Confeiteiro`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Confeiteiro` (
+CREATE TABLE IF NOT EXISTS `ameis`.`Confeiteiro` (
   `idConfeiteiro` INT NOT NULL AUTO_INCREMENT,
   `nomeLoja` VARCHAR(70) NOT NULL,
   `mei` VARCHAR(15) NOT NULL,
@@ -47,16 +47,16 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Confeiteiro` (
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Confeiteiro_Usuario1`
     FOREIGN KEY (`idUsuario`)
-    REFERENCES `db_ecommerce`.`Usuario` (`idUsuario`)
+    REFERENCES `ameis`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_ecommerce`.`Endereco`
+-- Table `ameis`.`Endereco`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Endereco` (
+CREATE TABLE IF NOT EXISTS `ameis`.`Endereco` (
   `idEndereco` INT NOT NULL AUTO_INCREMENT,
   `cep` VARCHAR(9) NOT NULL,
   `nomeLogradouro` VARCHAR(45) NOT NULL,
@@ -70,16 +70,16 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Endereco` (
   INDEX `fk_Endereco_Usuario1_idx` (`idUsuario` ASC) VISIBLE,
   CONSTRAINT `fk_Endereco_Usuario1`
     FOREIGN KEY (`idUsuario`)
-    REFERENCES `db_ecommerce`.`Usuario` (`idUsuario`)
+    REFERENCES `ameis`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_ecommerce`.`TipoDoce`
+-- Table `ameis`.`TipoDoce`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_ecommerce`.`TipoDoce` (
+CREATE TABLE IF NOT EXISTS `ameis`.`TipoDoce` (
   `idTipoDoce` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTipoDoce`))
@@ -87,9 +87,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_ecommerce`.`Doce`
+-- Table `ameis`.`Doce`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Doce` (
+CREATE TABLE IF NOT EXISTS `ameis`.`Doce` (
   `idDoces` INT NOT NULL AUTO_INCREMENT,
   `nomeDoce` VARCHAR(200) NOT NULL,
   `descricao` VARCHAR(200) NOT NULL,
@@ -103,21 +103,21 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Doce` (
   INDEX `fk_Doces_TipoDoce1_idx` (`idTipoDoce` ASC) VISIBLE,
   CONSTRAINT `fk_Doces_Confeiteiro1`
     FOREIGN KEY (`idConfeiteiro`)
-    REFERENCES `db_ecommerce`.`Confeiteiro` (`idConfeiteiro`)
+    REFERENCES `ameis`.`Confeiteiro` (`idConfeiteiro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Doces_TipoDoce1`
     FOREIGN KEY (`idTipoDoce`)
-    REFERENCES `db_ecommerce`.`TipoDoce` (`idTipoDoce`)
+    REFERENCES `ameis`.`TipoDoce` (`idTipoDoce`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_ecommerce`.`Pedido`
+-- Table `ameis`.`Pedido`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Pedido` (
+CREATE TABLE IF NOT EXISTS `ameis`.`Pedido` (
   `idPedido` INT NOT NULL AUTO_INCREMENT,
   `idConfeiteiro` INT NOT NULL,
   `idUsuario` INT NOT NULL,
@@ -133,26 +133,26 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`Pedido` (
   INDEX `fk_Pedido_Endereco1_idx` (`idEndereco` ASC) VISIBLE,
   CONSTRAINT `fk_Pedidos_Confeiteiro1`
     FOREIGN KEY (`idConfeiteiro`)
-    REFERENCES `db_ecommerce`.`Confeiteiro` (`idConfeiteiro`)
+    REFERENCES `ameis`.`Confeiteiro` (`idConfeiteiro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pedidos_Usuario1`
     FOREIGN KEY (`idUsuario`)
-    REFERENCES `db_ecommerce`.`Usuario` (`idUsuario`)
+    REFERENCES `ameis`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pedido_Endereco1`
     FOREIGN KEY (`idEndereco`)
-    REFERENCES `db_ecommerce`.`Endereco` (`idEndereco`)
+    REFERENCES `ameis`.`Endereco` (`idEndereco`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_ecommerce`.`PedidoDoce`
+-- Table `ameis`.`PedidoDoce`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_ecommerce`.`PedidoDoce` (
+CREATE TABLE IF NOT EXISTS `ameis`.`PedidoDoce` (
   `idPedidoDoce` INT NOT NULL AUTO_INCREMENT,
   `idPedido` INT NOT NULL,
   `idDoce` INT NOT NULL,
@@ -166,12 +166,12 @@ CREATE TABLE IF NOT EXISTS `db_ecommerce`.`PedidoDoce` (
   PRIMARY KEY (`idPedidoDoce`),
   CONSTRAINT `fk_Pedidos_has_Doces_Pedidos1`
     FOREIGN KEY (`idPedido`)
-    REFERENCES `db_ecommerce`.`Pedido` (`idPedido`)
+    REFERENCES `ameis`.`Pedido` (`idPedido`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pedidos_has_Doces_Doces1`
     FOREIGN KEY (`idDoce`)
-    REFERENCES `db_ecommerce`.`Doce` (`idDoces`)
+    REFERENCES `ameis`.`Doce` (`idDoces`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

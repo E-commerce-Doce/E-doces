@@ -72,11 +72,9 @@ require_once(__DIR__ . "/../include/menu.php");
     <script>
         document.getElementById('txtMei').addEventListener('input', function(e) {
             let mei = e.target.value;
-            // Aplica a formatação MEI (CNPJ)
             mei = mei.replace(/^(\d{2})(\d)/, "$1.$2"); // Adiciona o primeiro ponto
             mei = mei.replace(/^(\d{2}\.\d{3})(\d)/, "$1.$2"); // Adiciona o segundo ponto
-            mei = mei.replace(/^(\d{2}\.\d{3}\.\d{3})(\d)/, "$1/$2"); // Adiciona a barra
-            mei = mei.replace(/^(\d{2}\.\d{3}\.\d{3}\/\d{4})(\d)/, "$1-$2"); // Adiciona o traço
+            mei = mei.replace(/^(\d{2}\.\d{3}\.\d{3})(\d+)/, "$1"); // Remove qualquer coisa após o terceiro ponto
 
             e.target.value = mei; // Atualiza o valor do campo
         });

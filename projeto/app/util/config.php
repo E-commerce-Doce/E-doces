@@ -6,7 +6,7 @@ ini_set("display_errors", 1);
 
 //Banco de dados: conexão MySQL
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'db_ecommerce');
+define('DB_NAME', 'ameis');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');
 //define('DB_PASSWORD', '20053011');
