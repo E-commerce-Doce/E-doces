@@ -1,0 +1,45 @@
+.container{
+    font-family: Montserrat;
+}
+.itens-carrinho {
+    background-color: #FCCEAA;    
+}
+#opcaoEntrega{
+   background-color: #9BB899; 
+   border: #9BB899;
+}
+.resumocolor {
+    background-color: #9BB899;
+
+}
+.resumo-pedido {
+    background-color: #9BB899; 
+    color: #000;
+}
+
+.resumo-pedido h3, .resumo-pedido h4 {
+    border-bottom: 1px solid #EA4961;
+    padding-bottom: 5px;
+}
+
+.item-carrinho img {
+    object-fit: cover;
+}
+
+.quantidade-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quantidade-numero {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border: 1px solid #f08080; /* Cor da borda (rosa claro) */
+    border-radius: 5px; /* Arredonda os cantos */
+    padding: 5px 10px;
+    text-align: center;
+    margin: 0 5px; /* Espaçamento horizontal entre os botões */
+    width: 40px; /* Largura fixa opcional */
+  }
