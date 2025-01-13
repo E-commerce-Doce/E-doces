@@ -23,6 +23,12 @@ require_once(__DIR__ . "/../include/menu.php");
         <?php require_once(__DIR__ . "/../include/msg.php"); ?>
     </div>
 
+    <div class="m-5">
+        <button class="btn btn-secondary" onclick="window.location.href='<?= BASEURL ?>/controller/AvaliacaoController.php?action=list&nomeLoja=<?= urlencode($dados['lista'][0]->getConfeiteiro()->getNomeLoja()); ?>'">
+            Ver Avaliações
+        </button>
+    </div>
+
     <div class="row">
 
         <?php foreach ($dados['lista'] as $d): ?>

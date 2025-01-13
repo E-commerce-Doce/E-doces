@@ -6,13 +6,13 @@ require_once(__DIR__ . "/../include/menu.php");
 ?>
 <link rel="stylesheet" href="<?= BASEURL ?>/view/home/home.css">
 
-<div class="row justify-content-between m-0" style="max-width: 100%; ">
+<div class="row justify-content-between m-0 capa" style="max-width: 100%; ">
 
     <div class="col-5 ml-5 info" id="pedido">
         <div>
             <h2 class="estilo2"> Bem vindo à A'MEIs</h2>
             <p class="estilo" style="font-size:larger;">Onde cada doce é uma oportunidade!</p>
-            <p>Confeiteiros apaixonados criam delícias inesquecíveis para encantar seus clientes. Encontre, experimente e sinta o sabor, em um lugar só!</p>
+            <p class="extra" >Confeiteiros apaixonados criam delícias inesquecíveis para encantar seus clientes. Encontre, experimente e sinta o sabor, em um lugar só!</p>
             <a class="btn" href="<?= BASEURL . '/controller/ConfeiteiroController.php?action=listLojas' ?>">Faça seu pedido</a>
         </div>
     </div>
@@ -26,7 +26,7 @@ require_once(__DIR__ . "/../include/menu.php");
 
 <div class="sobre" id="sobre">
 
-    <div class="row" style=" width: 100%;display: flex; justify-content: space-between;">
+    <div class="row hist" style=" width: 100%;display: flex; justify-content: space-between;">
         <div class="col" style=" flex: 1;">
             <img class="cupSobre" src="<?= BASEURL ?>/view/img/confeiteira.jpg" alt="">
         </div>
@@ -35,6 +35,7 @@ require_once(__DIR__ . "/../include/menu.php");
             <h1 class="estiloSob2" >Sobre</h1>
             <p class="estiloSob">Aqui é o lugar onde a paixão pela confeitaria encontra o comércio digital! Se você é um confeiteiro MEI ou simplesmente adora um docinho de qualidade, chegou ao lugar certo. Nossa plataforma é a vitrine perfeita para quem quer mostrar suas delícias, com um atendimento personalizado e sem aquela dor de cabeça das taxas altas.<br>Aqui, os confeiteiros ganham destaque e os clientes encontram tudo o que precisam para adoçar o dia. Pronto para descobrir a magia da confeitaria digital? Vem com a gente!</p>
         </div>
+
     </div>
 
 </div>
@@ -63,7 +64,7 @@ require_once(__DIR__ . "/../include/menu.php");
                     <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z" />
                 </svg>
             </div>
-            <h2 class="estilo pb-2" style="font-size:larger;">Nesse e-mail deve conter algumas outras informações como: Nome da loja e o Mei.</h2>
+            <h2 class="estilo pb-2" style="font-size:larger;">Nesse e-mail deve conter algumas outras informações como: Nome da loja, Mei, a logo da sua loja e tambem um QR Code para pagamentos no pix.</h2>
         </div>
     </div>
 

@@ -25,7 +25,7 @@ class HomeController extends Controller {
 
         $dados ["totalUsuarios"] = $totalUsuario;
         $dados ["listaUsuarios"] = $listaUsuario;
-        $this->loadView("home/home.php", $dados);
+        $this->loadView("home/homeConfeiteiro.php", $dados);
 
     }
 

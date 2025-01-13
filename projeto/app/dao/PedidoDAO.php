@@ -47,7 +47,7 @@ class PedidoDAO
         $stm->bindParam(':idUsuario', $idUsuario, PDO::PARAM_INT);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-
+        
         return $this->mapPedido($result);
     }
 

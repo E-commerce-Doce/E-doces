@@ -25,15 +25,15 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
         :root {
-            --cor-verde: #9BB899;
-            --cor-rosa-claro: #FCCEAA;
-            --cor-rosa-escuro: #EA4961;
+            --cor-verde: #86A788;
+            --cor-rosa-claro: #FFE2E2;
+            --cor-rosa-escuro: #C30E59;
             --font-principal: Caveat;
             --font-secundaria: Montserrat;
         }
 
         body {
-            background-color: #FCCEAA;
+            background-color: #FFE2E2;
             font-family: Montserrant;
         }
 
@@ -154,7 +154,7 @@
         }
 
         .btn {
-            background-color: #EA4961;
+            background-color: var(--cor-rosa-escuro);
             color: #FCCEAA;
             font-family: var(--font-secundaria);
         }
@@ -165,7 +165,7 @@
 
 
         footer {
-            background-color: #EA4961;
+            background-color: var(--cor-rosa-escuro);
         }
     </style>
 </head>

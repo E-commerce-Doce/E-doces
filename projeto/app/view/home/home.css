@@ -3,8 +3,8 @@
 
 :root {
     --cor-verde: #9BB899;
-    --cor-rosa-claro: #FCCEAA;
-    --cor-rosa-escuro: #EA4961;
+    --cor-rosa-claro: #FFE2E2;
+    --cor-rosa-escuro: #C30E59;
     --font-principal: Caveat;
     --font-secundaria: Montserrat;
 }
@@ -30,9 +30,9 @@ body {
     align-items: center; 
     justify-content: center;
     padding: 30px;
-    background-color: #9BB899; 
-    margin: 20px; 
-    border-radius: 10px; 
+    border-radius: 0 10px 10px 0;
+    margin-right: 30px;
+    background-color: var(--cor-rosa-escuro);
 }
 
 .cupSobre{
@@ -42,17 +42,19 @@ body {
 }
 
 .estiloSob2{
-    color: whitesmoke;
+    color: var(--cor-rosa-claro);
     font-family: var(--font-principal);
     font-size: 4em;
     text-align: left;
 }
 
 .estiloSob{
-    color: whitesmoke;
+    color: var(--cor-rosa-claro);
     font-size: 1.2em;
     text-align: left;
     margin-top: 10px;
+    font-family: var(--font-secundaria);
+    text-align: justify;
 }
 
 .conf{
@@ -61,7 +63,7 @@ body {
 }
 
 .icone{
-    background-color: #EA4961; 
+    background-color: var(--cor-rosa-escuro); 
     width: 40px; 
     height: 40px; 
     margin: 10px; 
@@ -81,18 +83,17 @@ body {
 .row {
     display: flex;
     align-items: center;
-    height: 50%;
 }
 
 .estilo {
     font-family: var(--font-secundaria);
-    color: #FFF;
+    color: var(--cor-rosa-escuro);
 }
 
 .estilo2 {
     font-size: 50px;
     font-family: var(--font-principal);
-    color: #FFF;
+    color: var(--cor-rosa-escuro);
 }
 
 p a {
@@ -100,11 +101,12 @@ p a {
     color: #FCCEAA;
 }
 
-p {
+.extra {
     color: #797878;
     font-size: medium;
     font-family: var(--font-secundaria);
     text-align: justify;
+    display: block;
 }
 
 .navbar {
@@ -115,12 +117,10 @@ p {
     width: 100%;
 }
 
-
 .destaque img {
     max-width: 100%;
 
 }
-
 
 button {
     background-color: #6CC4A1;
@@ -139,5 +139,55 @@ button:hover {
     z-index: -1;
     right: 0;
     border-radius: 50% 0 0 50% ;
-
 }
+@media (max-width: 768px) { 
+    .row {
+        flex-direction: column; /* Organiza os elementos em coluna */
+        justify-content: center; /* Centraliza os elementos horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        gap: 20px; /* Espaçamento entre os elementos */
+        padding: 20px;
+        height: auto;
+    }
+
+    .info {
+        width: 100%; /* Ocupa a largura total */
+        height: 500px; /* Altura ajustada para o container */
+        text-align: center; /* Centraliza o texto */
+        padding: 20px;
+        background-image: url('URL-DA-IMAGEM'); /* Adiciona a imagem como fundo */
+        background-size: cover; /* Garante que a imagem ocupe todo o espaço */
+        background-position: center; /* Centraliza a imagem */
+        background-repeat: no-repeat; /* Evita repetição */
+        color: white; /* Ajusta o texto para melhor contraste */
+        display: flex; /* Habilita o flex para o texto */
+        flex-direction: column; /* Coloca o texto em coluna */
+        justify-content: center; /* Centraliza verticalmente */
+        align-items: center; /* Centraliza horizontalmente */
+    }
+
+    .imgCupCake {
+        display: none; /* Remove a imagem visível */
+    }
+
+    .extra{
+        display: none;
+    }
+
+    h2.estilo2 {
+        font-size: 25px;
+        margin: 10px 0;
+    }
+
+    p.estilo {
+        font-size: 0.9rem; 
+        margin: 10px 0;
+    }
+
+    .btn {
+        padding: 10px 20px; /* Ajusta o tamanho do botão */
+        font-size: 1rem;
+    }
+}
+
+    

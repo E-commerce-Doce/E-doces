@@ -1,20 +1,64 @@
-.container{
+.container {
     font-family: Montserrat;
 }
-.itens-carrinho {
-    background-color: #FCCEAA;    
+
+#opcaoEntrega {
+    background-color: #9BB899;
+    border: #9BB899;
 }
-#opcaoEntrega{
-   background-color: #9BB899; 
-   border: #9BB899;
-}
+
 .resumocolor {
     background-color: #9BB899;
-
 }
+
 .resumo-pedido {
-    background-color: #9BB899; 
+    background-color: #9BB899;
     color: #000;
+}
+
+.quant {
+    display: inline-flex;
+    background-color: #dc3545;
+    align-items: center;
+    width: 120px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #dc3545;
+    height: 38px;
+}
+
+.quant button {
+    border: none;
+    background-color: transparent;
+    padding: 0 10px;
+    font-size: 2.2rem;
+    min-width: 38px;
+    cursor: pointer;
+    color: #FFE2E2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.quant button:focus {
+    outline: none;
+}
+
+.quant span {
+    padding: 0 10px;
+    background-color: #f8d7da;
+    border-left: 1px solid #dc3545;
+    border-right: 1px solid #dc3545;
+    min-width: 38px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-carrinho {
+    align-items: flex-start !important;
 }
 
 .resumo-pedido h3, .resumo-pedido h4 {
@@ -22,24 +66,32 @@
     padding-bottom: 5px;
 }
 
+.limpar {
+    background-color: transparent;
+    color: #C30E59;
+    font-size: 5rem;
+}
+
 .item-carrinho img {
     object-fit: cover;
+    width: 500px;
+    margin-right: 2%;
 }
 
 .quantidade-container {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .quantidade-numero {
+}
+
+.quantidade-numero {
     background-color: white;
     color: black;
     font-size: 16px;
-    border: 1px solid #f08080; /* Cor da borda (rosa claro) */
-    border-radius: 5px; /* Arredonda os cantos */
+    border: 1px solid #f08080;
+    border-radius: 5px;
     padding: 5px 10px;
     text-align: center;
-    margin: 0 5px; /* Espaçamento horizontal entre os botões */
-    width: 40px; /* Largura fixa opcional */
-  }
+    margin: 0 5px;
+    width: 40px;
+}

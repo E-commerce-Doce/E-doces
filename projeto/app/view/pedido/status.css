@@ -1,4 +1,18 @@
-/* status.css */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-verde: #86A788;
+    --cor-rosa-claro: #FFE2E2;
+    --cor-rosa-escuro: #C30E59;
+    --font-principal: Caveat;
+    --font-secundaria: Montserrat;
+}
+
+body{
+    font-family: Montserrant;
+}
+
 .info-item {
     background-color: #f9f9f9;
     border: 1px solid #e1e1e1;
@@ -10,29 +24,39 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+svg{
+    font-size: 600;
+    color: var(--cor-rosa-escuro);
+}
+
+.info{
+    font-family: var(--font-secundaria);
+}
+
 .info-item i {
-    color: #ff6f61;
+    color: var(--cor-rosa-escuro);
     margin-right: 15px;
     font-size: 1.5rem; /* Aumentando o ícone */
 }
 
 .info-item strong {
-    color: #ff6f61;
+    color:var(--cor-rosa-escuro);
 }
 
 .info-item a {
-    color: #ff6f61;
+    color:var(--cor-rosa-escuro);
     text-decoration: underline;
 }
 
 .info-item a:hover {
-    color: #e45a46;
+    color: var(--cor-rosa-escuro);
 }
 
 .timeline {
     position: relative;
     padding: 40px 0;
     list-style: none;
+
 }
 
 .timeline-item {
@@ -51,6 +75,10 @@
     transform: translateX(-50%);
 }
 
+.timeline i{
+    font-size: 25px;
+}
+
 .timeline-icon {
     position: absolute;
     left: 50%;
@@ -66,6 +94,7 @@
 }
 
 .timeline-content {
+    font-family: var(--font-secundaria);
     position: relative;
     margin-left: 50%;
     transform: translateX(20px);
