@@ -1,0 +1,139 @@
+/* Estilos gerais */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin-top: 5rem;
+}
+
+h2 {
+    font-family: 'Caveat', cursive;
+    color: #C30E59;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem; /* Aumenta o tamanho do título */
+}
+
+/* Estilos dos cards de pedido */
+.card {
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+    border-radius: 10px;
+    overflow: hidden; /* Importante para o border-radius funcionar corretamente com o header */
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    background-color: #C30E59;
+    color: white;
+    padding: 1rem 1.25rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-header strong {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    display: block;
+    overflow-wrap: break-word;
+}
+
+.card-body {
+    padding: 1.25rem;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card-title {
+    color: #343a40;
+    font-weight: 600;
+}
+
+.card-text {
+    margin-bottom: 0.75rem;
+    word-break: break-word;
+}
+
+.card-text a {
+    color: #343a40; /* Cor igual aos outros textos */
+    font-weight: normal; /* Remove o negrito padrão do link */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
+}
+.card-text a:hover{
+    text-decoration: underline; /* Adiciona o sublinhado no hover */
+    color: #0056b3;
+}
+
+.avaliacao {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+/* Estilo para as estrelas de avaliação (mantido) */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+    color: #ffc107;
+}
+
+/* Estilos responsivos (mantidos) */
+@media (max-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-header strong {
+        font-size: 1.2rem;
+    }
+}
+
+.btn-info {
+    background-color: #C30E59;
+    border-color: #C30E59;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #9a0b42;
+    border-color: #9a0b42;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #C30E59;
+    border-color: #C30E59;
+}
+
+.btn-primary:hover {
+    background-color: #9a0b42;
+    border-color: #9a0b42;
+}
