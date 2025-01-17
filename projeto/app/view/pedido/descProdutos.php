@@ -7,24 +7,44 @@ require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
 
-<div class="container mt-5">
+<div class="container mt-5 p-3" style="border-radius: 15px; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
     <div class="row">
+        <!-- Imagem do produto -->
         <div class="col">
-            <?php if ($dados["doce"]->getCaminhoImagem()): ?>
-                <img style="width:100%; height:520px;" src="<?= URL_ARQUIVOS . "/" . $dados["doce"]->getCaminhoImagem() ?>" alt="Imagem do doce">
-            <?php endif; ?>
+            <div style="overflow: hidden; position: relative; max-width: 100%; max-height: 550px;">
+                <?php if ($dados["doce"]->getCaminhoImagem()): ?>
+                    <img class="zoom" style="width: 100%; height: 100%; object-fit: cover;" src="<?= URL_ARQUIVOS . "/" . $dados["doce"]->getCaminhoImagem() ?>" alt="Imagem do doce">
+                <?php endif; ?>
+            </div>
         </div>
 
+        <!-- Informações do produto -->
         <div class="col">
             <div style="font-family: 'Montserrat', sans-serif; color: black;" class="mb-3">
-                <p><?= $dados["doce"]->getTipoDoce()->getDescricao(); ?></p>
+                <!-- <p><?= $dados["doce"]->getTipoDoce()->getDescricao(); ?></p> -->
                 <p style="font-size:medium;"><?= $dados["doce"]->getConfeiteiro()->getNomeLoja(); ?></p>
-                <h5 class="mt-1 mb-5" style="font-family: caveat; font-weight: bold; font-size:40px;">
-                    <?= $dados["doce"]->getNomeDoce(); ?>
-                </h5>
-                <p style="color:brown; font-weight: bold;">R$ <?= $dados["doce"]->getValorFormatado(); ?></p>
-                <p><span style="font-weight: bold;">Descrição:</span><br> <?= $dados["doce"]->getDescricao(); ?></p>
-                <p><span style="font-weight: bold;">Alergicos:</span><br> <?= $dados["doce"]->getIngredientes(); ?></p>
+                <h2 style="font-family: 'Caveat', cursive; font-weight: bold; font-size: 2.5rem;"><?= $dados["doce"]->getNomeDoce(); ?></h2>
+                <p style="color:brown; font-size: 1.2rem; font-weight: bold;">R$ <?= $dados["doce"]->getValorFormatado(); ?></p>
+                <p style="font-size: 1rem; font-weight: bold; color: #333;">Descrição:</p>
+                <p><?= $dados["doce"]->getDescricao(); ?></p>
+                <p><span style="font-weight: bold;">Alérgicos:</span><br> <?= $dados["doce"]->getIngredientes(); ?></p>
+
+                <!-- Informações de entrega -->
+                <div class="mt-3">
+                    <h6>Informações de entrega:</h6>
+                    <p>Prazo de entrega: <strong>2 a 5 dias úteis</strong></p>
+                    <p>Frete: <strong>Grátis</strong> para pedidos acima de R$ 150,00.</p>
+                </div>
+
+                <!-- Avaliações -->
+                <div class="mt-4">
+                    <h6>Avaliações:</h6>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">⭐⭐⭐⭐☆</span>
+                        <span>(12 avaliações)</span>
+                    </div>
+                    <a href="#reviews" class="text-muted" style="font-size: small;">Ver todas as avaliações</a>
+                </div>
 
                 <!-- Formulário para adicionar ao carrinho -->
                 <form method="POST" action="<?= BASEURL ?>/controller/CarrinhoController.php?action=addCarrinho">
@@ -33,18 +53,23 @@ require_once(__DIR__ . "/../include/menu.php");
                     <input type="hidden" name="valorDoce" value="<?= $dados["doce"]->getValor(); ?>">
                     <input type="hidden" name="imgDoce" value="<?= $dados["doce"]->getCaminhoImagem() ?>">
                     <input type="hidden" name="idConfeiteiro" value="<?= $dados["doce"]->getConfeiteiro()->getIdConfeiteiro() ?>">
-                    <!-- <input type="hidden" name="quantidade" value="<?= $quantidadeCarrinho ?>"> -->
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 50px; font-size:large;">
+                    <button type="submit" class="btn btn-primary btn-lg"
+                        style="width: 100%; margin-top: 30px; font-size: large; background-color: #ff4081; border: none;">
                         Adicionar ao carrinho
                     </button>
                 </form>
             </div>
-
-            <?php require_once(__DIR__ . "/../include/msg.php"); ?>
         </div>
     </div>
-</div>
 
-<?php
-require_once(__DIR__ . "/../include/footer2.php");
-?>
+    <!-- Estilo adicional -->
+    <style>
+        img.zoom:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+
+    <?php
+    require_once(__DIR__ . "/../include/footer2.php");
+    ?>
