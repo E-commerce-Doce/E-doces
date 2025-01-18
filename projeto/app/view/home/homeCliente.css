@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-verde: #9BB899;
+    --cor-rosa-claro: #FFE2E2;
+    --cor-rosa-escuro: #C30E59;
+    --font-principal: 'Caveat'; /* Aspas adicionadas para melhor compatibilidade */
+    --font-secundaria: 'Montserrat'; /* Aspas adicionadas para melhor compatibilidade */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.capa{
+    height: 700px;
+}
+
+.navbar {
+    background-color: transparent;
+    font-weight: bolder;
+}
+
+.info {
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.sobre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 0 10px 10px 0;
+    margin-right: 30px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100px; /* Ajuste conforme a altura da imagem */
+}
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Ajuste conforme a altura da imagem */
+    background-image: url("/projeto/app/view/img/onda.png");
+    background-size: cover; /* Ou contain */
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    z-index: 1;
+}
+
+.row.hist {
+    position: relative;
+    z-index: 2;
+}
+
+.cupSobre {
+    max-width: 80%;
+    height: auto;
+    border-radius: 70%; /* Simplificado */
+}
+
+.estiloSob2 {
+    color: var(--cor-rosa-claro);
+    font-family: var(--font-principal);
+    font-size: 4em;
+    text-align: left;
+}
+
+.estiloSob {
+    color: var(--cor-rosa-claro);
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-family: var(--font-secundaria);
+    text-align: justify;
+}
+
+.conf {
+    margin: 20px;
+    padding: 50px;
+}
+
+.icone {
+    background-color: var(--cor-rosa-escuro);
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.texIcon {
+    color: whitesmoke;
+    margin: 5px;
+}
+
+.imgC {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.estilo {
+    font-family: var(--font-secundaria);
+    color: var(--cor-rosa-escuro);
+}
+
+.estilo2 {
+    font-size: 50px;
+    font-family: var(--font-principal);
+    color: var(--cor-rosa-escuro);
+}
+
+p a {
+    font-family: var(--font-secundaria); /* Consistente com outros estilos */
+    color: #FCCEAA;
+}
+
+.extra {
+    color: #797878;
+    font-size: medium;
+    font-family: var(--font-secundaria);
+    text-align: justify;
+    display: block; /* Manter se for intencional que este elemento sempre apareça */
+}
+
+.principal {
+    width: 100%;
+}
+
+.destaque img {
+    max-width: 100%;
+}
+
+button {
+    background-color: #6CC4A1;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5aa388;
+}
+
+.imgCupCake {
+    width: 600px;
+    position: absolute;
+    top: -450px;
+    right: 0;
+    border-radius: 50% 0 0 50%;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        height: auto; /* Removi o height fixo, pois o conteúdo define a altura */
+    }
+
+    .info {
+        width: 100%;
+        height: auto; /* Altura automática para se ajustar ao conteúdo */
+        text-align: center;
+        padding: 20px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imgCupCake {
+        display: none;
+    }
+
+    .extra {
+        display: none;
+    }
+
+    .estilo2 { /* Seletor mais específico */
+        font-size: 25px;
+        margin: 10px 0;
+    }
+
+    .estilo { /* Seletor mais específico */
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+
+    .btn { /* Este seletor não existe no CSS principal, adicionei para consistência */
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
