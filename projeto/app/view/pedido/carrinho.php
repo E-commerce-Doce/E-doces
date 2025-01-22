@@ -31,7 +31,7 @@
                             <p>Preço: R$ <?= number_format($doce['preco'], 2, ',', '.'); ?></p>
                             <div class="d-flex align-items-center quant">
                                 <button type="button" class="btn btn-sm me-2" onclick="alterarQuantidade('menos', <?= $doce['id'] ?>)">-</button>
-                                <span id="quantidade-<?= $doce['id'] ?>" class="px-3 border bg-light rounded"><?= (int)$doce['quantidade']; ?></span>
+                                <span id="quantidade-<?= $doce['id'] ?>" class="px-3 rounded"><?= (int)$doce['quantidade']; ?></span>
                                 <button type="button" class="btn btn-sm ms-2" onclick="alterarQuantidade('mais', <?= $doce['id'] ?>)">+</button>
                             </div>
                             <p id="subtotal-<?= $doce['id'] ?>" data-preco="<?= $doce['preco'] ?>" class="mt-2">
@@ -39,16 +39,24 @@
                             </p>
                         </div>
                         <a href="<?= BASEURL ?>/controller/CarrinhoController.php?action=deleteDoce&idDoce=<?= $doce['id'] ?>" class="btn btn-sm limpar">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                                </svg>
+                            </svg>
                         </a>
                     </div>
                 <?php endforeach; ?>
                 <h4 id="total-carrinho" class="mt-3 text-end">Total: R$ <?= number_format($total, 2, ',', '.'); ?></h4>
-                <div class="d-flex justify-content-between mt-3">
-                    <a href="<?= BASEURL ?>/controller/CarrinhoController.php?action=clearCarrinho" class="btn btn-danger">Limpar Carrinho</a>
-                    <a href="<?= BASEURL ?>/controller/PedidoController.php?action=listProdutos&idConfeiteiro=<?= $_SESSION['carrinhoIdConfeiteiro'] ?>" class="btn btn-secondary">Voltar à Loja</a>
+                <div class="d-flex justify-content-between mt-3 botao">
+                    <a href="<?= BASEURL ?>/controller/CarrinhoController.php?action=clearCarrinho" class="btn btn-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                    </a>
+                    <a href="<?= BASEURL ?>/controller/PedidoController.php?action=listProdutos&idConfeiteiro=<?= $_SESSION['carrinhoIdConfeiteiro'] ?>" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -71,28 +79,30 @@
                 </ul>
 
                 <form method="POST" action="<?= BASEURL ?>/controller/PedidoController.php?action=finalizarPedido">
-                    <h4>Forma de pagamento</h4>
-                    <div>
-                        <label><input type="radio" name="pagamento" value="DINHEIRO" <?= (isset($_POST['pagamento']) && $_POST['pagamento'] === 'DINHEIRO') ? 'checked' : '' ?>> Dinheiro</label>
-                        <label><input type="radio" name="pagamento" value="PIX" <?= (isset($_POST['pagamento']) && $_POST['pagamento'] === 'PIX') ? 'checked' : '' ?>> Pix</label>
-                    </div>
 
                     <h4>Retirada ou Entrega?</h4>
-                    <select name="tipoEntrega" id="opcaoEntrega" onchange="mostrarEnderecos()">
+                    <select class="mb-3" name="tipoEntrega" id="opcaoEntrega" onchange="mostrarEnderecos()">
                         <option value="">Selecione:</option>
                         <option value="RETIRADA">Retirada na loja</option>
                         <option value="DELIVERY">Entrega</option>
                     </select>
 
-                    <div id="enderecosContainer" style="display: none;">
+                    <div class="ml-3 mb-3" id="enderecosContainer" style="display: none;">
                         <h4>Escolha seu endereço</h4>
                         <div id="enderecosList"></div>
                     </div>
 
-                    <button type="submit" class="btn btn-success w-100 mt-3">Finalizar Compra</button>
+                    <h4>Forma de pagamento</h4>
+                    <div class="ml-3 escolha">
+                        <label><input type="radio" name="pagamento" value="DINHEIRO" <?= (isset($_POST['pagamento']) && $_POST['pagamento'] === 'DINHEIRO') ? 'checked' : '' ?>> Dinheiro</label><br>
+                        <label><input type="radio" name="pagamento" value="PIX" <?= (isset($_POST['pagamento']) && $_POST['pagamento'] === 'PIX') ? 'checked' : '' ?>> Pix</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100 mt-3 finalizar">Finalizar Compra</button>
                 </form>
             </div>
         </div>
+        
     </div>
 </div>
 

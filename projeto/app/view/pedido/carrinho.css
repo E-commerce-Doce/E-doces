@@ -3,27 +3,49 @@
 }
 
 #opcaoEntrega {
-    background-color: #9BB899;
-    border: #9BB899;
+    height: 20px;
+    border-radius: 5px;
+    background-color:#FFE2E2;
+    color: #C30E59;
+    font-weight: 500;
+    border: 0;
 }
 
-.resumocolor {
-    background-color: #9BB899;
+#opcaoEntrega option {
+    font-weight: 500;
 }
 
 .resumo-pedido {
-    background-color: #9BB899;
+    background-color:#C30E59;
+    border-radius: 10px;
     color: #000;
+    font-weight: 550;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.finalizar{
+    background-color: #FFE2E2;
+    color: #C30E59;
+    font-weight: 500;
+    position: relative;
+    margin-top: auto;
+}
+
+.escolha{
+    color: #fff;
 }
 
 .quant {
     display: inline-flex;
-    background-color: #dc3545;
+    background-color: #C30E59;
     align-items: center;
     width: 120px;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #dc3545;
+    border: 1px solid #C30E59;
     height: 38px;
 }
 
@@ -47,9 +69,10 @@
 
 .quant span {
     padding: 0 10px;
-    background-color: #f8d7da;
-    border-left: 1px solid #dc3545;
-    border-right: 1px solid #dc3545;
+    background-color:#C30E59;
+    color: #FFE2E2;
+    font-weight: 600;
+    font-size: 1.2rem;
     min-width: 38px;
     text-align: center;
     display: flex;
@@ -62,8 +85,14 @@
 }
 
 .resumo-pedido h3, .resumo-pedido h4 {
-    border-bottom: 1px solid #EA4961;
+    border-bottom: 1px solid #FFE2E2;
     padding-bottom: 5px;
+    color: #fff;
+
+}
+
+.botao a{
+    border-radius: 50%;
 }
 
 .limpar {
@@ -95,3 +124,5 @@
     margin: 0 5px;
     width: 40px;
 }
+
+
