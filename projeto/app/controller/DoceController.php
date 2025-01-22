@@ -30,7 +30,7 @@ class DoceController extends Controller
         if (! $this->usuarioLogado())
             exit;
 
-        if(! $this->getIdConfeiteiroLogado()) {
+        if (! $this->getIdConfeiteiroLogado()) {
             echo "O usuário não é confeiteiro.";
             exit;
         }
@@ -41,15 +41,15 @@ class DoceController extends Controller
         $this->arquivoService = new ArquivoService();
         $this->usuarioDao = new UsuarioDAO();
 
-        $usuarioId = $_SESSION[SESSAO_USUARIO_ID]; 
-        $this->usuario = $this->usuarioDao->findById($usuarioId); 
+        $usuarioId = $_SESSION[SESSAO_USUARIO_ID];
+        $this->usuario = $this->usuarioDao->findById($usuarioId);
 
         $this->handleAction();
     }
 
     protected function list(string $msgErro = "", string $msgSucesso = "")
     {
-        
+
         $doce = $this->doceDao->listPorConfeiteiro($this->getIdConfeiteiroLogado());
         $dados = [
             "lista" => $doce,
@@ -75,7 +75,7 @@ class DoceController extends Controller
 
         //Armazenar o caminho de imagem já existente
         $caminhoImagemAtual = isset($_POST['caminhoImagemAtual']) ? $_POST['caminhoImagemAtual'] : NULL;
-        
+
         $doce = new Doce;
         $doce->setNomeDoce($nomeDoce);
         $doce->setDescricao($descricao);
@@ -101,12 +101,12 @@ class DoceController extends Controller
 
         if (empty($erros)) {
             // Salva a imagem
-            if($arquivoImg['size'] > 0) {
+            if ($arquivoImg['size'] > 0) {
                 $caminhoImagem = $this->arquivoService->salvarArquivo($arquivoImg);
                 if ($caminhoImagem) {
                     $doce->setCaminhoImagem($caminhoImagem);
-                    
-                    if($dados["id"] != 0) //Apensas se está alterando
+
+                    if ($dados["id"] != 0) //Apensas se está alterando
                         $this->arquivoService->removerArquivo($caminhoImagemAtual);
                 } else {
                     $erros[] = "Erro ao salvar a imagem.";
@@ -194,17 +194,21 @@ class DoceController extends Controller
         $doce = $this->findDoceById();
 
         if ($doce) {
-            $this->doceDao->deleteById($doce->getIdDoces());
-            $this->arquivoService->removerArquivo($doce->getCaminhoImagem());
-            
-            $this->list("", "Doce excluído com sucesso!");
-        } else
+            try {
+                $this->doceDao->deleteById($doce->getIdDoces());
+                $this->arquivoService->removerArquivo($doce->getCaminhoImagem());
+            } catch (PDOException $e) {
+                $this->list("Não é possível excluir este doce, pois ele já executou ações no sistema!");
+            }
+        } else {
             $this->list("Doce não encontrado");
+        }
     }
 
 
     //Método para buscar o usuário com base no ID recebido por parâmetro GET
-    private function findDoceById(){
+    private function findDoceById()
+    {
         $id = 0;
         if (isset($_GET['id']))
             $id = $_GET['id'];

@@ -18,7 +18,7 @@ class UsuarioDAO
         $sql = "SELECT u.*, c.nomeLoja, c.mei, c.idConfeiteiro
                  FROM Usuario u   
                 LEFT JOIN Confeiteiro c ON (u.idUsuario = c.idUsuario)
-                ORDER BY u.nomeCompleto";
+                ORDER BY u.papel";
         $stm = $conn->prepare($sql);
         $stm->execute();
         $result = $stm->fetchAll();

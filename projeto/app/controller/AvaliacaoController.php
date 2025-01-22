@@ -70,9 +70,7 @@ class AvaliacaoController extends Controller
             $avaliacao->setUsuario((new Usuario())->setId($this->getIdUsuarioLogado()));
 
             try {
-                if ($dados["id"] == 0) { // Inserindo
-                    $this->avaliacaoDao->insert($avaliacao);
-                } 
+                $this->avaliacaoDao->insert($avaliacao);
                 header("location: " . BASEURL . "/controller/PedidoController.php?action=listPedidos");
                 exit;
             } catch (PDOException $e) {

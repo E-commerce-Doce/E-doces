@@ -30,11 +30,8 @@ require_once(__DIR__ . "/../include/menu.php");
                             maxlength="9" placeholder="Informe seu Cep"
                             value="<?php echo (isset($dados["endereco"]) ? $dados["endereco"]->getCep() : ''); ?>" />
                     </div>
-                    <div class="form-group col-2" style="margin: auto; margin-top:35px;">
-                        <button class=" btn btn-primary " type="submit">Procurar</button>
-
-                    </div>
-                    <div class="form-group col-4">
+                
+                    <div class="form-group col-6">
                         <label for="txtNumero" class="font-weight-bold">Numero:</label> <!-- Negrito -->
                         <input class="form-control form-control-lg" type="text" id="txtNumero" name="numero"
                             maxlength="70" placeholder="Numero"
@@ -76,8 +73,8 @@ require_once(__DIR__ . "/../include/menu.php");
 
                 <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
-                <button type="reset" class="btn btn-secondary">Limpar</button>
-            </form>
+                <a class="btn btn-secondary" href="<?= BASEURL ?>/controller/EnderecoController.php?action=list">Cancelar</a>
+                </form>
         </div>
 
         <div class="col-6">

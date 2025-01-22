@@ -80,7 +80,7 @@ require_once(__DIR__ . "/../include/menu.php");
             <?php if (isset($dados["pagamento"])) : ?>
                 <?php $pedido = $dados["pagamento"]; ?>
                 <h3 style="font-family: Caveat;">QR Code para Pagamento</h3>
-                <h5>Informações do Pedido: <?php echo $pedido->getIdPedido(); ?></h5>
+                <h5>Informações do Pedido: #<?php echo $pedido->getIdPedido(); ?></h5>
                 <h5><strong>Valor Total:</strong> R$
                     <?php
                     $valorTotalPedido = 0; 

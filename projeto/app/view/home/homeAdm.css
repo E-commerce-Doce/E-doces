@@ -32,11 +32,13 @@
 
 .texto h1 {
     font-size: 5.5em;
-    font-family: var(--font-principal);
+    font-family: var(--font-principal);  
+
 }
 
 .texto h2{
     font-family: var(--font-secundaria);
+
 }
 
 .texto a {

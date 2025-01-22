@@ -4,13 +4,68 @@
 <link rel="stylesheet" href="<?= BASEURL ?>/view/pedido/status.css">
 
 <div class="container my-5">
-    <h2 class="ml-5 mb-5" style="font-family: caveat; color: #C30E59;">Andamento do Pedido #<?= $pedido->getIdPedido(); ?></h2>
+    <h2 class="ml-5 mb-5" style="font-family: caveat; color: #C30E59;">Andamento do Pedido</h2>
 
     <div class="row">
 
         <div class="col-md-6">
             <div class="info">
                 <ul>
+
+                    <div class="info-item mb-3">
+                        <p>
+                            <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                            </svg>
+                            <strong>Pedido nº <?= $pedido->getIdPedido(); ?></strong>
+
+                        </p>
+
+                        <p>
+                            <strong>Forma de Pagamento:</strong> <?= htmlspecialchars($pedido->getFormaPagamento()) ?><br>
+                             <?php if ($formaPagamento === 'PIX'): ?>
+                                <?php if ($pedido->getComprovante()): ?>
+                                    <span class="text-success">Pagamento Confirmado</span>
+                                <?php else: ?>
+                                    <span class="text-danger">Pagamento Não Realizado</span>
+                                <?php endif; ?>
+                            <?php elseif ($formaPagamento === 'DINHEIRO'): ?>
+                                <span class="text-info">Pagamento na Entrega</span>
+                            <?php endif; ?>
+                        </p>
+
+                        <?php
+                        $valorTotalPedido = 0;
+                        $pedidoDoces = $pedido->getPedidosDoces();
+
+                        if (!empty($pedidoDoces)) {
+                            foreach ($pedidoDoces as $pedidoDoce) {
+                                $doce = $pedidoDoce->getDoce();
+                                if ($doce) {
+                                    $valorItem = $pedidoDoce->getQuantidade() * $pedidoDoce->getValorUnitario();
+                                    $valorTotalPedido += $valorItem;
+                        ?>
+                                    <p>
+                                        <strong><?= htmlspecialchars($doce->getNomeDoce()) ?></strong> -
+                                        <?= $pedidoDoce->getQuantidade() ?> unidades
+                                        (R$ <?= number_format($pedidoDoce->getValorUnitario(), 2, ',', '.') ?> cada)
+                                    </p>
+                        <?php
+                                } else {
+                                    echo "<p>Doce não encontrado</p>";
+                                }
+                            }
+                        } else {
+                            echo "<p>Sem doces associados</p>";
+                        }
+                        ?>
+                        <hr>
+                        <h5 class="text-right">
+                            Total: <strong>R$ <?= number_format($valorTotalPedido, 2, ',', '.') ?></strong>
+                        </h5>
+                    </div>
+
                     <?php if ($status == Status::CANCELADO): ?>
 
                         <p class="info-item">
@@ -19,7 +74,7 @@
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                             </svg>
                             <strong>Cancelado?</strong> Se seu pedido foi cancelado e você escolheu o PIX, entre em contato com a loja <strong><?= $pedido->getConfeiteiro()->getNomeLoja(); ?> </strong>pelo telefone <strong><?= htmlspecialchars($telefoneConfeiteiro) ?></strong> para reembolso.
-                            </p>
+                        </p>
 
                     <?php elseif ($status !== Status::ENTREGUE): ?>
 

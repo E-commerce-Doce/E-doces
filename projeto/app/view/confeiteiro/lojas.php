@@ -14,7 +14,12 @@ require_once(__DIR__ . "/../include/menu.php");
                     <div class="card" style="border: none; background-color: transparent;">
                         <a href="<?= BASEURL ?>/controller/PedidoController.php?action=listProdutos&idConfeiteiro=<?= $loja['idConfeiteiro'] ?>" class="text-decoration-none">
                             <!-- Imagem da loja, se não houver, exibe a logo do chapéu -->
-                            <img style="border-radius: 50%; height:350px; width: 350px;" src="<?= !empty($loja['logo']) ? URL_ARQUIVOS . '//' . $loja['logo'] : BASEURL . '/view/img/Logo_chapeu.png' ?>" class="card-img-top" alt="Imagem da loja">
+                            <img
+                                src="<?= !empty($loja['logo']) ? URL_ARQUIVOS . '//' . $loja['logo'] : BASEURL . '/view/img/Logo_chapeu.png' ?>"
+                                alt="Imagem da loja"
+                                class="card-img-top"
+                                style="<?= !empty($loja['logo']) ? 'border-radius: 50%; height: 350px; width: 350px; object-fit: cover;' : 
+                                'border-radius: 40%; height: 350px; width: 350px; object-fit: contain;' ?>">
                             <div class="card-body">
                                 <!-- Nome da loja como link para a listagem de produtos -->
                                 <h5 class="text-center font-weight-bold" style="font-size:30px; font-family: 'Caveat', cursive;">

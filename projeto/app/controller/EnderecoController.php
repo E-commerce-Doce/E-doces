@@ -138,15 +138,19 @@ class EnderecoController extends Controller
 
         $endereco = $this->findEnderecoById();
 
-        if ($endereco) {
+    if ($endereco) {
+        try {
             $this->enderecoDao->deleteById($endereco->getIdEndereco());
 
             $this->list("", "Endereço excluído com sucesso!");
-        } else
-            $this->list("Endereço não encontrado");
+        } catch(PDOException $e) {
+            $this->list("Não é possível excluir este endereço, pois ele já executou ações no sistema!");
+        }
+    } else {
+        $this->list("Endereço não encontrado");
     }
 
-
+    }
     //Método para buscar o endereco com base no ID recebido por parâmetro GET
     private function findEnderecoById()
     {

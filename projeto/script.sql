@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS ameis.Avaliacao (
   idUsuario INT NOT NULL, 
   PRIMARY KEY (idAvaliacao),
   FOREIGN KEY (idPedido) REFERENCES Pedido (idPedido) ON DELETE CASCADE,
-  FOREIGN KEY (idConfeiteiro) REFERENCES Usuario (idUsuario) ON DELETE CASCADE,
+  FOREIGN KEY (idConfeiteiro) REFERENCES Confeiteiro (idConfeiteiro) ON DELETE CASCADE,
   FOREIGN KEY (idUsuario) REFERENCES Usuario (idUsuario) ON DELETE CASCADE,
   INDEX (idPedido),
   INDEX (idConfeiteiro),

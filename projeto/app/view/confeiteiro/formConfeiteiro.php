@@ -57,8 +57,10 @@ require_once(__DIR__ . "/../include/menu.php");
 
                 <input type="hidden" id="hddId" name="idUsuario" value="<?= $dados['idUsuario']; ?>"/>
 
-                <button type="submit" class="btn btn-primary">Alterar</button>
-                <button type="reset" class="btn btn-secondary">Limpar</button>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">Alterar</button>
+                    <a class="btn btn-secondary" href="<?= BASEURL ?>/controller/UsuarioController.php?action=list">Cancelar</a>
+                </div>
             </form>
         </div>
 

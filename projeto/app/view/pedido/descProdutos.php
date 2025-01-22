@@ -29,15 +29,15 @@ require_once(__DIR__ . "/../include/menu.php");
                         <?php if ($dados["doce"]->getConfeiteiro()->getLogo()): ?>
                             <img src="<?= URL_ARQUIVOS . '/' . $dados["doce"]->getConfeiteiro()->getLogo(); ?>"
                                 alt="Imagem da loja"
-                                style="width: 80px; height: 80px; object-fit: cover; border: none;">
+                                style="width: 50px; height: 50px; object-fit: cover; border: none; border-radius:50%">
                         <?php else: ?>
                             <img src="<?= BASEURL . '/view/img/Logo_chapeu.png'; ?>"
                                 alt="Imagem padrão da loja"
-                                style="width: 150px; height: 150px; object-fit: cover; border: none;">
+                                style="width: 50px; height:50px; object-fit: cover; border: none;">
                         <?php endif; ?>
                     </div>
                     <div>
-                        <p class="mb-0 fw-bold" style="font-size: 2rem; font-family: 'Caveat', cursive;">
+                        <p class="mb-0 fw-bold ml-2" style="font-size: 2rem; font-family: 'Caveat', cursive;">
                             <?= $dados["doce"]->getConfeiteiro()->getNomeLoja(); ?>
                         </p>
                     </div>
@@ -55,7 +55,7 @@ require_once(__DIR__ . "/../include/menu.php");
                     <p><span style="font-weight: bold;">Alérgicos:</span><br> <?= $dados["doce"]->getIngredientes(); ?></p>
 
                     <div class="mt-4">
-                        <a href="<?= BASEURL ?>/controller/AvaliacaoController.php?action=listAvaliacoes&idConfeiteiro" class="text-muted" style="font-size: medium;">Ver avaliações da loja</a>
+                        <a href="<?= BASEURL ?>/controller/AvaliacaoController.php?action=listAvaliacoes&idConfeiteiro=<?= $dados["doce"]->getConfeiteiro()->getIdConfeiteiro()?> "class="text-muted" style="font-size: medium;">Ver avaliações da loja</a>
                     </div>
                 </div>
             </div>

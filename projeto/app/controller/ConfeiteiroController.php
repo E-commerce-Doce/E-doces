@@ -133,9 +133,11 @@ class ConfeiteiroController extends Controller
                 } else{
                     //Setar o ID do confeiteiro
                     $confeiteiroAux = $this->confeiteiroDao->findConfeiteiroByIdUsuario($dados["idUsuario"]);
-                    $confeiteiro->setIdConfeiteiro($confeiteiroAux->getIdConfeiteiro());
-
-                    $this->confeiteiroDao->update($confeiteiro);
+                    if($confeiteiroAux) {                    
+                        $confeiteiro->setIdConfeiteiro($confeiteiroAux->getIdConfeiteiro());
+                        $this->confeiteiroDao->update($confeiteiro);
+                    } else
+                        $this->confeiteiroDao->insert($confeiteiro);
                 }
                 $this->usuarioDao->updatePapel($dados["idUsuario"], UsuarioPapel::CONFEITEIRO);
                 header("location: " . BASEURL . "/controller/UsuarioController.php?action=list");
@@ -183,6 +185,7 @@ class ConfeiteiroController extends Controller
         if ($confeiteiro) {
             // Preenche os dados no formulário para edição
             $dados["confeiteiro"] = $confeiteiro;
+            $dados['idUsuario'] = $idUsuario;
             $this->loadView("confeiteiro/formConfeiteiro.php", $dados);
         } else {
             echo "Confeiteiro não encontrado!";

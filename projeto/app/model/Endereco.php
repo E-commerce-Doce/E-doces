@@ -21,7 +21,7 @@ class Endereco{
     }
 
     public function getEnderecoCompleto() {
-        return  $this->nomeLogradouro . ", " . $this->numero . " - " . $this->bairro . " | " . $this->complemento . 
+        return '<br>'. $this->nomeLogradouro . ", " . $this->numero . " - " . $this->bairro . " | " . $this->complemento . 
         " <br> " . $this->cidade . " - ". $this->estado;
     }
 

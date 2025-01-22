@@ -68,13 +68,8 @@ require_once(__DIR__ . "/../include/menu.php");
 
                 <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
 
-                <button type="submit" class="btn btn-primary">Gravar</button>
-                <button type="reset" class="btn btn-secondary">Limpar</button>
-                <div class="row" style="margin-top: 30px;">
-                    <div class="col-12">
-                        <a class="btn btn-secondary" href="<?= BASEURL ?>/controller/DoceController.php?action=list">Voltar</a>
-                    </div>
-                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a class="btn btn-secondary" href="<?= BASEURL ?>/controller/DoceController.php?action=list">Cancelar</a>
             </form>
         </div>
         <div class="col-6">

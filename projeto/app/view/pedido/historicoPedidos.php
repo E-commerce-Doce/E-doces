@@ -22,7 +22,7 @@ require_once(__DIR__ . "/../include/menu.php");
                 <div class="card shadow-sm">
                     <div class="card-header ">
                         <strong style="font-family:caveat; font-size:25px">
-                            Pedido #<?= $pedido->getIdPedido(); ?> : <?php
+                            Pedido <?= $pedido->getIdPedido(); ?> : <?php
                                                                     $horario = $pedido->getHorario();
                                                                     if ($horario instanceof DateTime) {
                                                                         echo $horario->format('d/m/Y - H:i:s');
@@ -46,13 +46,13 @@ require_once(__DIR__ . "/../include/menu.php");
                             if ($pedido->getEndereco()) {
                                 echo $pedido->getEndereco()->getEnderecoCompleto();
                             } else {
-                                echo "Não informado";
+                                echo "Retirada na Loja";
                             }
                             ?>
                         </p>
 
                         <div class="mb-3">
-                            <h6><strong>Itens do Pedido:</strong></h6>
+                            <h6><strong>Itens:</strong></h6>
                             <?php
                             $valorTotalPedido = 0;
                             $pedidoDoces = $pedido->getPedidosDoces();

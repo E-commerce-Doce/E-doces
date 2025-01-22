@@ -66,7 +66,7 @@ require_once(__DIR__ . "/../include/header.php");
         <div class="col-md-6 text-center d-none d-md-block">
             <img src="<?= BASEURL ?>/view/img/imgLogin.jpg" alt="Doces deliciosos" class="img-fluid"
                 style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
-               width: 85%; max-height: 700px;">
+               width: 100%; max-height: 700px;">
         </div>
 
     </div>

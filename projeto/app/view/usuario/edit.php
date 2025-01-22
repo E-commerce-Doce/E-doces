@@ -49,9 +49,6 @@ require_once(__DIR__ . "/../include/menu.php");
                         Editar Perfil
                     </a>
 
-                    <a class="mark-as-read" onclick="return confirm('Confirma a exclusão do usuário?');" href="<?= BASEURL ?>/controller/UsuarioController.php?action=delete&id=<?= $dados['usuario']->getId(); ?>">
-                        Excluir
-                    </a>
                 </div>
             </div>
         </div>

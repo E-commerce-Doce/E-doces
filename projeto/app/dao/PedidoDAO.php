@@ -208,10 +208,11 @@ class PedidoDAO
                 // Mapeando dados do usuário
                 $usuario = new Usuario();
                 $usuario->setId($reg['idUsuario']);
-                if (isset($reg['nomeCompleto']))
+                if (isset($reg['nomeCompleto'])) {
                     $usuario->setNome($reg['nomeCompleto']);
-                $usuario->setLogin($reg['login']);
-                $usuario->setTelefone($reg['telefone']);
+                    $usuario->setLogin($reg['login']);
+                    $usuario->setTelefone($reg['telefone']);
+                }
                 $pedidoAtual->setUsuario($usuario);
 
                 // Mapeando dados do endereço

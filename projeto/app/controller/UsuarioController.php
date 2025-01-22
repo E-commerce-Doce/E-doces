@@ -166,8 +166,12 @@ class UsuarioController extends Controller
         $usuario = $this->findUsuarioById();
 
         if ($usuario) {
-            $this->usuarioDao->deleteById($usuario->getId());
-            $this->list("", "Usuário excluído com sucesso!");
+            try {
+                $this->usuarioDao->deleteById($usuario->getId());
+                $this->list("", "Usuário excluído com sucesso!");
+            } catch(PDOException $e) {
+                $this->list("Não é possível excluir este usuário, pois ele já executou ações no sistema!");
+            }
         } else {
             $this->list("Usuário não encontrado");
         }

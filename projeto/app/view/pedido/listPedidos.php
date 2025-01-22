@@ -103,7 +103,7 @@ function exibirListaPedidos($statusArray, $dados)
                         if ($pedido->getEndereco()) {
                             echo $pedido->getEndereco()->getEnderecoCompleto();
                         } else {
-                            echo "Não informado";
+                            echo "Retirada na Loja";
                         }
                         ?>
                     </span></p>
