@@ -10,12 +10,13 @@
 }
 
 .adm {
-    background-image: url("https://static.vecteezy.com/ti/vetor-gratis/p1/7717456-lindo-fundo-banner-com-bolos-de-confeitaria-morangos-cobertos-de-chocolate-varios-doces-vetor.jpg");
-    background-repeat: no-repeat;
+    background-image: url("https://www.allrecipes.com/thmb/GsldgnTeewAv5eEqoxQ7E1iAKO8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/157877-vanilla-cupcakes-ddmfs-2X1-0399-1b671dfd598548b1b0339076d062a758.jpg"); 
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 550px;
+    height: 700px;
+    text-align: center;
+    align-items: center;
     position: relative;
 }
 
@@ -43,15 +44,6 @@
     color: var(--cor-rosa-claro);
     margin-top: 10px;
     font-family: var(--font-secundaria);
-}
-
-.lembrete {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    background: #ffe6f0; /* Fundo rosa claro */
-    border-top: 2px solid var(--cor-rosa-escuro);
 }
 
 .beneficios {
@@ -111,4 +103,38 @@
 
 .btn-comprar:hover {
     background-color: #a83266;
+}
+
+.lembrete{
+    background-color: white;
+    color: rgb(88, 88, 88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.lembrete .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.lembrete h1{
+    color: var(--cor-rosa-escuro);
+}
+
+.suporte li{
+    margin: 10px;
+}
+
+.suporte img{
+    width: 100%;
+}
+
+.suporte{
+    font-family: var(--font-secundaria);
+}
+
+.suporte .recado{
+    margin: 20px auto;
 }

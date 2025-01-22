@@ -8,7 +8,7 @@ session_start();
 require_once(__DIR__ . "/../include/header.php");
 ?>
 
-<link rel="stylesheet" href="<?= BASEURL ?>/view/home/home.css">
+<link rel="stylesheet" href="<?= BASEURL ?>/view/login/login.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <div class="container" style="margin-top: 5%; font-family: 'Poppins', sans-serif;">

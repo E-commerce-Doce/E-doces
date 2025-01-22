@@ -1,5 +1,5 @@
 <?php
-#Classe controller para Confeiteiro
+#Classe controller para Usuário
 require_once(__DIR__ . "/Controller.php");
 require_once(__DIR__ . "/../dao/ConfeiteiroDAO.php");
 require_once(__DIR__ . "/../dao/PedidoDAO.php");
@@ -7,8 +7,6 @@ require_once(__DIR__ . "/../model/Confeiteiro.php");
 require_once(__DIR__ . "/../service/ConfeiteiroService.php");
 require_once(__DIR__ . "/../service/ArquivoService.php");
 require_once(__DIR__ . "/../dao/UsuarioDAO.php");
-
-
 
 class ConfeiteiroController extends Controller
 {

@@ -36,23 +36,25 @@ require_once(__DIR__ . "/../include/menu.php");
     </div>
 </div>
 
-<div class="lembrete">
-    <div class="row suporte">
-        <div class="col-lg-6 info">
-            <h1><strong>Suporte</strong></h1>
-            <h3><strong>Suporte via e-mail</strong></h3>
-            <p>Estamos aqui para facilitar sua jornada!</p>
-            <p><strong>Suporte apenas pelo e-mail</strong></p>
-            <p>Resolva todas as suas dúvidas e comece a <br> vender suas delícias de forma simples e prática!</p>
-            <p><strong>Entre em contato conosco e simplifique <br> suas vendas online agora mesmo!"</strong></p>
-        </div>
+<div class="lembrete mt-5">
+    <div class="container">
+        <div class="row suporte">
+            <div class="col-lg-6 info">
+                <h1><strong>Suporte</strong></h1>
+                <h3><strong>Suporte via e-mail</strong></h3>
+                <p>Estamos aqui para facilitar sua jornada!</p>
+                <p>E-mail: <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJZdkFwKxBXzxWCpfwXgWBwmSFRfkDStgKvVQjHFVfrgPkFJXzvtVlFLGQKfvtPJWFzQdPg">ameis.contato@gmail.com</a></p>
+                <p><strong>Suporte apenas pelo e-mail</strong></p>
+                <p>Resolva todas as suas dúvidas e comece a <br> vender suas delícias de forma simples e prática!</p>
+                <p><strong>Entre em contato conosco e simplifique <br> suas vendas online agora mesmo!"</strong></p>
+            </div>
 
-        <div class="col-lg-5">
-            
+            <div class="col-lg-5">
+                <img src="<?= BASEURL ?>/view/img/suporte.png" alt="">
+            </div>
         </div>
     </div>
 </div>
-
 
 <?php
 require_once(__DIR__ . "/../include/footer.php");

@@ -24,14 +24,22 @@ require_once(__DIR__ . "/../include/menu.php");
 
 </div>
 
-<div class="sobre" id="sobre">
-    <div class="row hist" style="width: 100%; display: flex; justify-content: space-between; position: relative; z-index: 2;">
-        <div class="col" style="flex: 1;">
-            <img class="cupSobre" src="<?= BASEURL ?>/view/img/confeiteira.jpg" alt="">
-        </div>
-        <div class="col-7" style="text-align: right;">
-            <h1 class="estiloSob2">Sobre</h1>
-            <p class="estiloSob">Aqui é o lugar onde a paixão pela confeitaria encontra o comércio digital!... </p>
+<div class="lembrete">
+    <div class="container">
+        <div class="row suporte">
+            <div class="col-lg-6 recado">
+                <h1><strong>Suporte</strong></h1>
+                <h3><strong>Suporte via e-mail</strong></h3>
+                <p>Estamos aqui para facilitar sua jornada!</p>
+                <p>E-mail: <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJZdkFwKxBXzxWCpfwXgWBwmSFRfkDStgKvVQjHFVfrgPkFJXzvtVlFLGQKfvtPJWFzQdPg">ameis.contato@gmail.com</a></p>
+                <p><strong>Suporte apenas pelo e-mail</strong></p>
+                <p>Resolva todas as suas dúvidas e comece a <br> comprar essas delícias de forma simples e prática!</p>
+                <p><strong>Entre em contato conosco e simplifique <br> suas vendas online agora mesmo!"</strong></p>
+            </div>
+
+            <div class="col-lg-5">
+                <img src="<?= BASEURL ?>/view/img/suporte.png" alt="">
+            </div>
         </div>
     </div>
 </div>

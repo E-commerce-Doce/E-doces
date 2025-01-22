@@ -29,57 +29,37 @@ body {
     align-items: center;
 }
 
-.sobre {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    border-radius: 0 10px 10px 0;
-    margin-right: 30px;
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 100px; /* Ajuste conforme a altura da imagem */
+.lembrete{
+    background-color: white;
+    color: rgb(88, 88, 88);
 }
 
-.sobre::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.lembrete .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.lembrete h1{
+    color: var(--cor-rosa-escuro);
+}
+
+.suporte a{
+    font-weight: 400;
+    color: var(--cor-rosa-escuro);
+}
+
+.suporte img{
     width: 100%;
-    height: 100px; /* Ajuste conforme a altura da imagem */
-    background-image: url("/projeto/app/view/img/onda.png");
-    background-size: cover; /* Ou contain */
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    z-index: 1;
 }
 
-.row.hist {
-    position: relative;
-    z-index: 2;
-}
-
-.cupSobre {
-    max-width: 80%;
-    height: auto;
-    border-radius: 70%; /* Simplificado */
-}
-
-.estiloSob2 {
-    color: var(--cor-rosa-claro);
-    font-family: var(--font-principal);
-    font-size: 4em;
-    text-align: left;
-}
-
-.estiloSob {
-    color: var(--cor-rosa-claro);
-    font-size: 1.2em;
-    margin-top: 10px;
+.suporte{
     font-family: var(--font-secundaria);
-    text-align: justify;
 }
+
+.suporte .recado{
+    margin: 20px auto;
+}
+
 
 .conf {
     margin: 20px;

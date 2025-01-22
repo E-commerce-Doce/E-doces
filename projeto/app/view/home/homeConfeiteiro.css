@@ -148,12 +148,21 @@
 }
 
 .lembrete{
-    background-image: url(/projeto/app/view/img/onda.png);
+    background-color: white;
 }
 
 .lembrete .row {
     margin-left: 0;
     margin-right: 0;
+}
+
+.suporte img{
+    width: 100%;
+}
+
+.suporte a{
+    font-weight: 400;
+    color: var(--cor-rosa-escuro);
 }
 
 .suporte h1{
