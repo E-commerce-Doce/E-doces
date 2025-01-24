@@ -7,14 +7,15 @@ require_once(__DIR__ . "/../include/menu.php");
 ?>
 
 <div class="container mt-5">
-    <h3 class="text-center" style="font-family:caveat;">
+    <h2 class="text-center" style="font-family:caveat;">
         <?php if ($dados['id'] == 0) echo "Cadastro de Endereço";
         else echo "Editar Endereço"; ?>
-    </h3>
+    </h2>
 
     <div class="row" style="margin-top: 10px; font-family:montserrat;">
         <div class="col-8 mx-auto"> <!-- Aumentei a largura da coluna -->
-            <form id="frmendereco" method="POST" action="<?= BASEURL ?>/controller/EnderecoController.php?action=save">
+            <form id="frmendereco" method="POST" action="<?= BASEURL ?>/controller/EnderecoController.php?action=save" enctype="multipart/form-data" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        
 
                 <div class="form-group">
                     <label for="txtNomeLogradouro" class="font-weight-bold">Nome da Rua:</label> <!-- Negrito -->
@@ -73,7 +74,7 @@ require_once(__DIR__ . "/../include/menu.php");
 
                 <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
-                <a class="btn btn-secondary" href="<?= BASEURL ?>/controller/EnderecoController.php?action=list">Cancelar</a>
+                <a class="btn btn-secondary ml-2" href="<?= BASEURL ?>/controller/EnderecoController.php?action=list">Cancelar</a>
                 </form>
         </div>
 
