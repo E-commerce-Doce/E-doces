@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-verde: #9BB899;
+    --cor-rosa-claro: #FFE2E2;
+    --cor-rosa-escuro: #C30E59;
+    --font-principal: Caveat;
+    --font-secundaria: Montserrat;
+}
+
+.conf {
+    background-image: url("https://img.freepik.com/fotos-premium/bolos-de-sobremesa-doce-na-cozinha-da-confeitaria_124507-98141.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+.texto {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: whitesmoke;
+}
+
+.texto h1 {
+    font-size: 5.5em;
+    font-family: var(--font-principal);
+}
+
+.texto h2{
+    font-family: var(--font-secundaria);
+}
+
+.texto a {
+    background-color: var(--cor-rosa-escuro);
+    color: whitesmoke;
+    margin-top: 10px;
+    font-family: var(--font-secundaria);
+}
+
+.dica {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.dica .info h1 {
+    font-size: 2.5rem;
+    font-family: var(--font-secundaria);
+    font-weight: bold;
+    color: var(--cor-rosa-escuro);
+    margin-bottom: 20px;
+}
+
+.dica .info h2 {
+    font-size: 1.2rem;
+    font-family: var(--font-secundaria);
+    color:black;
+    margin-bottom: 40px;
+}
+
+.fotos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.fotos .col-lg-3 {
+    flex: 1;
+    max-width: 350px;
+    aspect-ratio: 3 / 4; 
+    position: relative;
+    overflow: hidden;
+}
+
+.fotos img{
+    border-radius: 10px;
+}
+
+.fotos .col-lg-3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.fotos .col-lg-3:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .fotos {
+        flex-direction: column;
+        gap: 15px;
+        margin: 5px;
+        border-radius: 10px;
+    }
+
+    .fotos .col-lg-3 {
+        max-width: 100%;
+    }
+}
+
+.ajuda {
+    margin: 50px auto;
+    max-width: 1200px; /* Limita a largura máxima */
+    padding: 20px;
+}
+
+.ajuda .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaçamento igual entre os elementos */
+    gap: 20px; /* Espaçamento entre as colunas */
+}
+
+.ajuda .col-lg-5 {
+    flex: 1; /* Garante que as colunas tenham o mesmo tamanho */
+    text-align: center;
+}
+
+.ajuda .col-lg-5 h1 {
+    font-size: 2rem; /* Tamanho do título */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--cor-rosa-escuro);
+    font-family: var(--font-secundaria);
+}
+
+.ajuda .col-lg-5 h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: black;
+    margin-bottom: 20px;
+    font-family: var(--font-secundaria);
+}
+
+.ajuda .col img {
+    width: 100%; 
+    max-width: 500px; 
+    height: auto; 
+    border-radius: 5px;
+}
+
+.lembrete{
+    background-color: white;
+}
+
+.lembrete .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.suporte img{
+    width: 100%;
+}
+
+.suporte a{
+    font-weight: 400;
+    color: var(--cor-rosa-escuro);
+}
+
+.suporte h1{
+    color: var(--cor-rosa-escuro);
+    margin-bottom: 20px;
+}
+
+.suporte{
+    font-family: var(--font-secundaria);
+}
+
+.suporte .info{
+    margin: 20px auto;
+}

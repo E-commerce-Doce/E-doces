@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-rosa-claro: #FFE2E2;
+    --cor-rosa-escuro: #C30E59;
+    --font-secundaria: Montserrat;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: transparent;
+    font-weight: bolder;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    margin-top: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.navbar-brand {
+    color: #C30E59;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #C30E59;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.form-control {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.input-group {
+    display: flex;
+}
+
+.input-group-append {
+    display: flex;
+}
+
+.input-group-text {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) { 
+    .row {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        height: auto;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .img-fluid {
+        display: none;
+}
+}
