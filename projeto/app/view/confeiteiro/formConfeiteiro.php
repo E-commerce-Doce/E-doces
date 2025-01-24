@@ -7,13 +7,12 @@ require_once(__DIR__ . "/../include/menu.php");
 ?>
 
 <div class="container mt-5">
-    <h3 class="text-center" style="font-family:caveat;">
+    <h2 class="text-center" style="font-family:caveat;">
         Dados do Confeiteiro
-    </h3>
-
+    </h2>
 
     <div class="row" style="margin-top: 10px; font-family:montserrat;">
-        <div class="col-8 mx-auto"> <!-- Aumentei a largura da coluna e centralizei -->
+        <div class="col-8 mx-auto" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"> <!-- Fundo adicionado aqui -->
             <form id="frmConfeiteiro" method="POST"
                 action="<?= BASEURL ?>/controller/ConfeiteiroController.php?action=save" enctype="multipart/form-data">
 
@@ -47,13 +46,11 @@ require_once(__DIR__ . "/../include/menu.php");
                     <input type="file" class="form-control form-control-lg" id="txtLogo" name="logoImagem" accept="image/*" />
                 </div>
 
-
                 <?php if (isset($dados['confeiteiro']) && $dados['confeiteiro']->getLogo()): ?>
                     <img src="<?php echo URL_ARQUIVOS . '/' . $dados['confeiteiro']->getLogo(); ?>"
                         alt="Imagem do Confeiteiro" style="max-height: 180px; max-width: 100%;" />
                     <input type="hidden" name="logoImagemAtual" value="<?= $dados['confeiteiro']->getLogo() ?>" />
                 <?php endif; ?>
-
 
                 <input type="hidden" id="hddId" name="idUsuario" value="<?= $dados['idUsuario']; ?>"/>
 
