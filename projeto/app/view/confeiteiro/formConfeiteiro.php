@@ -30,27 +30,41 @@ require_once(__DIR__ . "/../include/menu.php");
                         value="<?php echo (isset($dados["confeiteiro"]) ? $dados["confeiteiro"]->getMei() : ''); ?>" />
                 </div>
 
-                <div class="form-group">
-                    <label for="txtQrCode" class="font-weight-bold">QrCode do PIX:</label>
-                    <input type="file" class="form-control form-control-lg" id="txtQrCode" name="qrCodeImagem" accept="image/*" />
-                </div>
-
-                <?php if (isset($dados['confeiteiro']) && $dados['confeiteiro']->getQrCode()): ?>
-                    <img src="<?php echo URL_ARQUIVOS . '/' . $dados['confeiteiro']->getQrCode(); ?>"
-                        alt="Imagem do qrcode" style="max-height: 180px; max-width: 100%;" />
+                <div class="row align-items-center">
+        <!-- Upload e Pré-visualização do QR Code -->
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="txtQrCode" class="font-weight-bold">QrCode do PIX:</label>
+                <input type="file" class="form-control form-control-lg" id="txtQrCode" name="qrCodeImagem" accept="image/*" />
+            </div>
+            <?php if (isset($dados['confeiteiro']) && $dados['confeiteiro']->getQrCode()): ?>
+                <div class="text-center mt-3">
+                    <img src="<?php echo URL_ARQUIVOS . '/' . $dados['confeiteiro']->getQrCode(); ?>" 
+                         alt="Imagem do QR Code" 
+                         class="img-fluid" 
+                         style="max-height: 180px;" />
                     <input type="hidden" name="qrCodeImagemAtual" value="<?= $dados['confeiteiro']->getQrCode() ?>" />
-                <?php endif; ?>
-
-                <div class="form-group">
-                    <label for="txtLogo" class="font-weight-bold">Logo da Loja:</label>
-                    <input type="file" class="form-control form-control-lg" id="txtLogo" name="logoImagem" accept="image/*" />
                 </div>
+            <?php endif; ?>
+        </div>
 
-                <?php if (isset($dados['confeiteiro']) && $dados['confeiteiro']->getLogo()): ?>
-                    <img src="<?php echo URL_ARQUIVOS . '/' . $dados['confeiteiro']->getLogo(); ?>"
-                        alt="Imagem do Confeiteiro" style="max-height: 180px; max-width: 100%;" />
+        <!-- Upload e Pré-visualização da Logo -->
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="txtLogo" class="font-weight-bold">Logo da Loja:</label>
+                <input type="file" class="form-control form-control-lg" id="txtLogo" name="logoImagem" accept="image/*" />
+            </div>
+            <?php if (isset($dados['confeiteiro']) && $dados['confeiteiro']->getLogo()): ?>
+                <div class="text-center mt-3">
+                    <img src="<?php echo URL_ARQUIVOS . '/' . $dados['confeiteiro']->getLogo(); ?>" 
+                         alt="Imagem da Logo" 
+                         class="img-fluid" 
+                         style="max-height: 180px;" />
                     <input type="hidden" name="logoImagemAtual" value="<?= $dados['confeiteiro']->getLogo() ?>" />
-                <?php endif; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
 
                 <input type="hidden" id="hddId" name="idUsuario" value="<?= $dados['idUsuario']; ?>"/>
 

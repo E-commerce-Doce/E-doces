@@ -73,7 +73,7 @@ require_once(__DIR__ . "/../include/menu.php");
               
                     <div class="form-group col-6" style="margin:auto; margin-top:35px;" >
                         <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
-                        <button style="width: 360px; background-color:#9BB899; color:aliceblue; font-weight:bolder;" type="submit" class="btn btn-dark">Cadastrar</button>&nbsp;
+                        <button style="width: 360px; background-color:#C30E59; color:aliceblue; font-weight:bolder;" type="submit" class="btn btn-dark">Cadastrar</button>&nbsp;
                     </div>
                 </div>
 

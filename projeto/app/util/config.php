@@ -8,8 +8,8 @@ ini_set("display_errors", 1);
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'ameis');
 define('DB_USER', 'root');
-//define('DB_PASSWORD', 'root');
-define('DB_PASSWORD', '20053011');
+define('DB_PASSWORD', 'root');
+//define('DB_PASSWORD', '20053011');
 
 //Deve ter o nome da pasta do projeto no servidor APACHE
 define('BASEURL', '/ProjetoIntegrador/E-doces/projeto/app');

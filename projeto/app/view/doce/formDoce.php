@@ -17,63 +17,68 @@ require_once(__DIR__ . "/../include/menu.php");
                     <label for="txtNome" class="font-weight-bold">Nome:</label>
                     <input class="form-control form-control-lg" type="text" id="txtNome" name="nomeDoce"
                         maxlength="70" placeholder="Informe seu nome:"
-                        value="<?php echo (isset($dados["doce"]) ? $dados["doce"]->getNomeDoce() : ''); ?>" required />
+                        value="<?php echo (isset($dados["doce"]) ? $dados["doce"]->getNomeDoce() : ''); ?>" />
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="txtDescricao" class="font-weight-bold">Descrição:</label>
-                        <textarea class="form-control form-control-lg" id="txtDescricao" name="descricao"
-                            maxlength="255" placeholder="Informe a descrição:" rows="5" required><?php echo (isset($dados['doce']) ? $dados['doce']->getDescricao() : ''); ?></textarea>
-                    </div>
                     <div class="form-group col-md-6">
                         <label for="txtIngredientes" class="font-weight-bold">Ingredientes:</label>
-                        <textarea class="form-control form-control-lg" id="txtIngredientes" name="ingredientes"
-                            maxlength="255" placeholder="Informe os ingredientes:" rows="5" required><?php echo (isset($dados['doce']) ? $dados['doce']->getIngredientes() : ''); ?></textarea>
+                        <input class="form-control form-control-lg" type="text" id="txtIngredientes" name="ingredientes"
+                            maxlength="255" placeholder="Informe os ingredientes:"
+                            value="<?php echo (isset($dados['doce']) ? $dados['doce']->getIngredientes() : ''); ?>" />
+</div>
+                        <div class="form-group col-md-6">
+                            <label for="txtDescricao" class="font-weight-bold">Descrição:</label>
+                            <input class="form-control form-control-lg" type="text" id="txtDescricao" name="descricao"
+                                maxlength="255" placeholder="Informe a descrição:"
+                                value="<?php echo (isset($dados['doce']) ? $dados['doce']->getDescricao() : ''); ?>" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="txtCaminhoImagem" class="font-weight-bold">Foto:</label>
-                    <input type="file" class="form-control form-control-lg"
-                        id="txtCaminhoImagem" name="caminhoImagem" accept="image/*" />
-                </div>
+                    <div class="form-group">
+                        <label for="txtCaminhoImagem" class="font-weight-bold">Foto:</label>
+                        <input type="file" class="form-control form-control-lg"
+                            id="txtCaminhoImagem" name="caminhoImagem" accept="image/*" />
+                    </div>
 
-                <?php if (isset($dados['doce']) && $dados['doce']->getCaminhoImagem()): ?>
-                    <div class="mb-3 text-center">
-                        <img src="<?php echo URL_ARQUIVOS . '/' . $dados['doce']->getCaminhoImagem(); ?>"
-                            alt="Imagem do Doce" style="max-height: 180px; max-width: 100%; border-radius: 5px;"/>
-                        <input type="hidden" name="caminhoImagemAtual" value="<?= $dados['doce']->getCaminhoImagem() ?>" />
-                    </div>
-                <?php endif; ?>
-                
-                <div class="form-row">
-                    <div class="form-group col-md-6 ">
-                        <label for="txtValor" class="font-weight-bold">Valor:</label>
-                        <input class="form-control form-control-lg" type="number" id="txtValor" name="valor"
-                            step="0.01" placeholder="Informe o valor:"
-                            value="<?php echo (isset($dados['doce']) ? $dados['doce']->getValor() : ''); ?>" required />
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="selTipoDoce" class="font-weight-bold">Tipo Doce:</label>
-                        <select class="form-control form-control-lg" name="idTipoDoce" id="selTipoDoce" required>
-                            <option value="">Selecione o tipo do doce:</option>
-                            <?php foreach ($dados["tiposDoces"] as $tipo): ?>
-                                <option value="<?= $tipo->getIdTipoDoce() ?>"
-                                    <?php if (isset($dados["doce"]) && $dados["doce"]->getTipoDoce()->getIdTipoDoce() == $tipo->getIdTipoDoce()) echo "selected"; ?>>
-                                    <?= $tipo->getDescricao() ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                <div class="d-flex justify-content-between mt-4 ">
-                    <button type="submit" class="btn btn-primary btn-lg ml-2" style="background-color: #C30E59; border: none;">Salvar</button>
-                    <a class="btn btn-secondary btn-lg ml-2" href="<?= BASEURL ?>/controller/DoceController.php?action=list">Cancelar</a>
-                </div>
+                    <?php if (isset($dados['doce']) && $dados['doce']->getCaminhoImagem()): ?>
+                        <div class="mb-3 text-center">
+                            <img src="<?php echo URL_ARQUIVOS . '/' . $dados['doce']->getCaminhoImagem(); ?>"
+                                alt="Imagem do Doce" style="max-height: 180px; max-width: 100%; border-radius: 5px;" />
+                            <input type="hidden" name="caminhoImagemAtual" value="<?= $dados['doce']->getCaminhoImagem() ?>" />
+                        </div>
+                    <?php endif; ?>
 
-                <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
+                    <div class="form-row">
+                        <div class="form-group col-md-6 ">
+                            <label for="txtValor" class="font-weight-bold">Valor:</label>
+                            <input class="form-control form-control-lg" type="number" id="txtValor" name="valor"
+                                step="0.01" placeholder="Informe o valor:"
+                                value="<?php echo (isset($dados['doce']) ? $dados['doce']->getValor() : ''); ?>" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="selTipoDoce" class="font-weight-bold">Tipo Doce:</label>
+                            <select class="form-control form-control-lg" name="idTipoDoce" id="selTipoDoce">
+                                <option value="">Selecione o tipo do doce:</option>
+                                <?php foreach ($dados["tiposDoces"] as $tipo): ?>
+                                    <option value="<?= $tipo->getIdTipoDoce() ?>"
+                                        <?php if (isset($dados["doce"]) && $dados["doce"]->getTipoDoce()->getIdTipoDoce() == $tipo->getIdTipoDoce()) echo "selected"; ?>>
+                                        <?= $tipo->getDescricao() ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4 ">
+                            <button type="submit" class="btn btn-primary btn-lg ml-2" style="background-color: #C30E59; border: none;">Salvar</button>
+                            <a class="btn btn-secondary btn-lg ml-2" href="<?= BASEURL ?>/controller/DoceController.php?action=list">Cancelar</a>
+                        </div>
+
+                        <input type="hidden" id="hddId" name="id" value="<?= $dados['id']; ?>" />
             </form>
         </div>
+    </div>
+    <div class="col-6">
+        <?php require_once(__DIR__ . "/../include/msg.php"); ?>
     </div>
 
 </div>
@@ -81,26 +86,3 @@ require_once(__DIR__ . "/../include/menu.php");
 <?php
 require_once(__DIR__ . "/../include/footer2.php");
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -197,6 +197,8 @@ class DoceController extends Controller
             try {
                 $this->doceDao->deleteById($doce->getIdDoces());
                 $this->arquivoService->removerArquivo($doce->getCaminhoImagem());
+                $this->list("", "Doce excluído com sucesso!");
+
             } catch (PDOException $e) {
                 $this->list("Não é possível excluir este doce, pois ele já executou ações no sistema!");
             }
