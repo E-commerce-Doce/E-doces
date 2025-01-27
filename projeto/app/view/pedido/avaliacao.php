@@ -1,19 +1,21 @@
 <?php require_once(__DIR__ . '/../include/header.php'); ?>
 <?php require_once(__DIR__ . '/../include/menu.php'); ?>
 
+<link rel="stylesheet" href="<?= BASEURL ?>/view/pedido/avaliacao.css">
 
-<div class="container m-5">
-<?php if (!empty($dados['lista'])): ?>
+<div class="tudo">
+    <?php if (!empty($dados['lista'])): ?>
         <h3 class="text-center font-weight-bold" style="font-family: 'Caveat', cursive;">
             <?= $dados['lista'][0]->getConfeiteiro()->getNomeLoja(); ?>
         </h3>
     <?php else: ?>
-        <h3 class="text-center font-weight-bold" style="font-family: 'Caveat', cursive;">Sem avaliacoes disponíveis</h3>
+        <h3 class="text-center font-weight-bold" style="font-family: 'Caveat', cursive;">Sem avaliações disponíveis</h3>
     <?php endif; ?>
-    <div class="row">
 
+    <!-- Container para os cartões -->
+    <div class="row">
         <?php foreach ($dados['lista'] as $avaliacao): ?>
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h5><?=$avaliacao->getUsuario()->getNome();?></h5>

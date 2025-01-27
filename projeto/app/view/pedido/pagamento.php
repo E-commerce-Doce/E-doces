@@ -7,6 +7,11 @@ require_once(__DIR__ . "/../include/menu.php");
 ?>
 
 <style>
+    .tudo{
+        background-color: #fff;
+        border-radius: 20px;
+    }
+
     .row {
         display: flex;
         justify-content: space-between;
@@ -16,14 +21,14 @@ require_once(__DIR__ . "/../include/menu.php");
     .col-lg-6 {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Alinha os itens no centro da coluna */
-        text-align: center; /* Garante que o texto do título fique centralizado */
+        align-items: center; 
+        text-align: center;
     }
 
     .col-lg-6 img {
         max-width: 80%;
         height: auto;
-        margin-bottom: 20px; /* Espaçamento entre o QR Code e o título */
+        margin-bottom: 20px; 
     }
 
     .formulario {
@@ -33,29 +38,16 @@ require_once(__DIR__ . "/../include/menu.php");
         align-items: center;
     }
 
-    .form-group {
-        width: 100%; /* Garantir que o .form-group ocupe toda a largura */
-        margin-bottom: 15px; /* Espaçamento entre os campos */
-    }
-
     .form-group label {
         display: block;
-        text-align: left; /* Alinha o label à esquerda */
-        margin-bottom: 5px; /* Espaço entre o label e o input */
+        text-align: left; 
+        margin-bottom: 5px;
     }
 
-    .form-group input,
-    .form-group button {
-        width: 100%; /* Faz os campos e botões ocuparem toda a largura do .form-group */
-        padding: 10px; /* Espaçamento interno */
-        margin-top: 5px; /* Espaçamento entre os campos */
+    .bot{
+        width: 49%;
     }
 
-    .form-group button {
-        margin-top: 15px; /* Distância maior entre o input e o botão */
-    }
-
-    /* Alinha h3 e h5 à esquerda */
     h3, h5 {
         text-align: left;
     }
@@ -73,14 +65,13 @@ require_once(__DIR__ . "/../include/menu.php");
     }
 </style>
 
-<div class="container mt-5">
-    <div class="row" style="margin-top: 10px;">
+<div class="container mt-5 tudo">
+    <div class="row">
         <!-- Info Pagamento -->
-        <div class="col-lg-6 mb-4" style="font-family: montserrat;">
+        <div class="col-lg-6 mb-4 mt-5" style="font-family: montserrat;">
             <?php if (isset($dados["pagamento"])) : ?>
                 <?php $pedido = $dados["pagamento"]; ?>
-                <h3 style="font-family: Caveat;">QR Code para Pagamento</h3>
-                <h5>Informações do Pedido: #<?php echo $pedido->getIdPedido(); ?></h5>
+                <h2 style="font-family: Caveat;">QR Code para Pagamento</h2><br>
                 <h5><strong>Valor Total:</strong> R$
                     <?php
                     $valorTotalPedido = 0; 
@@ -130,8 +121,11 @@ require_once(__DIR__ . "/../include/menu.php");
 
                 <input type="hidden" id="hddId" name="idPedido" value="<?= $dados['idPedido']; ?>">
 
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <a class="btn btn-secondary" href="<?= BASEURL ?>/controller/PedidoController.php?action=acompanharStatus&idPedido=<?=$dados['pagamento']->getIdPedido();?>">Cancelar</a>
+                <div class="botão">
+                <button type="submit" class="btn btn-primary bot">Salvar</button>
+                <a class="btn btn-secondary bot" href="<?= BASEURL ?>/controller/PedidoController.php?action=acompanharStatus&idPedido=<?=$dados['pagamento']->getIdPedido();?>">Cancelar</a>
+                </div>
+                
                 </form>
         </div>
 

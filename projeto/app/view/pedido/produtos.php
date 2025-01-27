@@ -10,21 +10,30 @@ require_once(__DIR__ . "/../include/header.php");
 require_once(__DIR__ . "/../include/menu.php");
 ?>
 
+<div class="row mb-0 mr-0">
+    <a href="<?= BASEURL ?>/controller/ConfeiteiroController.php?action=listLojas" class="btn ml-5 mt-5" style="font-weight: 800; color:#C30E59; background-color:transparent; ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+        </svg>
+    </a>
+</div>
+
 <div class="container my-5">
+
     <?php if (!empty($dados['lista'])): ?>
         <h3 class="text-center font-weight-bold" style="font-family: 'Caveat', cursive;">
             <?= $dados['lista'][0]->getConfeiteiro()->getNomeLoja(); ?>
         </h3>
-     <?php else: ?>
+    <?php else: ?>
         <h3 class="text-center font-weight-bold" style="font-family: 'Caveat', cursive;">Sem doces disponíveis</h3>
-    <?php endif; ?> 
+    <?php endif; ?>
 
     <div class="row">
         <?php require_once(__DIR__ . "/../include/msg.php"); ?>
     </div>
 
     <div class="m-5">
-        <button class="btn btn-secondary" onclick="window.location.href='<?=BASEURL?>/controller/AvaliacaoController.php?action=listAvaliacoes&idConfeiteiro=<?= urlencode($dados['lista'][0]->getConfeiteiro()->getIdConfeiteiro()); ?>'">
+        <button class="btn btn-secondary" onclick="window.location.href='<?= BASEURL ?>/controller/AvaliacaoController.php?action=listAvaliacoes&idConfeiteiro=<?= urlencode($dados['lista'][0]->getConfeiteiro()->getIdConfeiteiro()); ?>'">
             Ver Avaliações
         </button>
     </div>
@@ -35,8 +44,8 @@ require_once(__DIR__ . "/../include/menu.php");
             <div class="col-md-4 mb-4">
                 <div class="card" style="border: none; background-color: transparent;">
                     <?php if ($d->getCaminhoImagem()): ?>
-                        <a href="<?= BASEURL?>/controller/PedidoController.php?action=descProduto&idDoces=<?= $d->getIdDoces() ?>">
-                        <img src="<?= URL_ARQUIVOS . "/" . $d->getCaminhoImagem() ?>" class="card-img-top" alt="Imagem do doce" style="height: 300px; width:100%; object-fit: cover;">
+                        <a href="<?= BASEURL ?>/controller/PedidoController.php?action=descProduto&idDoces=<?= $d->getIdDoces() ?>">
+                            <img src="<?= URL_ARQUIVOS . "/" . $d->getCaminhoImagem() ?>" class="card-img-top" alt="Imagem do doce" style="height: 300px; width:100%; object-fit: cover;">
                         </a>
                     <?php endif; ?>
                     <div class="card-body" style="font-family: 'Montserrat', sans-serif; color: black; text-align:center;">
